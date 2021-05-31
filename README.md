@@ -34,7 +34,7 @@ We are fans of Star Wars and we love lightsabers because they are cool. We are a
    4. Look for the `rootCA.pem` file in `mkcert -CAROOT` and install `rootCA.pem` on the iPhone.
 1. Setup the HTTPS & WebSocket Server application
    1. Change terminal directory to the server's directory.
-   2. ~~Install express in terminal: run `npm i express`. ~~
+   2. ~~Install express in terminal: run `npm i express`.~~
    3. ~~You also need to install the ws package by inputting the following command in the terminal: npm i ws (in the same directory).~~
    4. Run `node server.js`. 
 1. Setup your iPhone
