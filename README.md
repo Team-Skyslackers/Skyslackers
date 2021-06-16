@@ -12,7 +12,7 @@ We are fans of Star Wars and we love lightsabers because they are cool. We are a
 (longer descriptive version) We hope to develop a motion-sensing music video game. In the game, players can use their lightsaber to deflect blaster bolts and even lightsaber blades from the Dark Side. To make our game more exciting and interesting, we integrate Rhythm-matching games features: every time the player deflects the blaster bolts and lightsaber blades from the enemy, a music score will be produced. Hence, music is generated in response to the player's actions. Moreover, there will be scores and leaderboards after every round to motivate players.
 
 ## Proposed features
-1. When the lightsaber is connected to the computer, the position and the movement of the virtual lightsaber is synchronized with the physical lightsaber hilt.
+1. When the lightsaber hilt controller (or an iPhone) is connected to the computer, the position and the movement of the virtual lightsaber in the game is synchronized with the physical lightsaber hilt.
 1. When a new round starts, there will be blaster bolts/lightsaber blades of different colours and lengths coming towards the player, and the player can wave the lightsaber hilt to control the virtual lightsaber blade to deflect. If successfully deflected, a music score will be produced and a new score will be updated. When the player successfully deflected 5/10/15… times consecutively, additional points will be awarded.
 1. After each round of the game, the total score will be displayed and there is a leaderboard showing the global rank of the player.
 1. There will be a forum for players to share experience and feedback
@@ -24,6 +24,9 @@ We are fans of Star Wars and we love lightsabers because they are cool. We are a
 1. Unity3D Engine
 1. Communication: Node.JS, HTML, JavaScript, WebSocket
 1. APIs used: iPhone API
+
+## Technology to be used in the future Milestones
+1. Computer Vision for better movement tracking
 
 ## How to Setup (only tested on MacOS as of Milestone 1)
 
