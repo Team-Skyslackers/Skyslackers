@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cacheType: 2
-  lastUpdatedAtString: 2021-06-16T21:12:54.372+08:00
-  initializedAtString: 2021-06-16T21:12:54.201+08:00
+  lastUpdatedAtString: 2021-06-16T18:37:09.581+08:00
+  initializedAtString: 2021-06-16T18:37:09.568+08:00
   localBranches:
   - name: main
     tracking: origin/main
   remoteBranches:
-  - name: origin/HEAD
+  - name: origin/main
     tracking: '[None]'
   remotes:
   - name: origin
@@ -43,10 +43,10 @@ MonoBehaviour:
     - origin
     subKeys:
     - Values:
-      - HEAD
+      - main
     subKeyValues:
     - Values:
-      - name: HEAD
+      - name: main
         remote:
           name: origin
           url: https://github.com/yuejunfeng0909/Skyslackers.git
