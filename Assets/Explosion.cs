@@ -28,7 +28,10 @@ public class Explosion : MonoBehaviour {
         cubesPivot = new Vector3(cubesPivotDistance, cubesPivotDistance, cubesPivotDistance);
 
     }
-
+    void Update()
+    {
+        gameObject.transform.Translate(0f,0f,-0.1f);
+    }
     // Update is called once per frame
     // void Update() {
     //     counter += 1;
@@ -81,8 +84,10 @@ public class Explosion : MonoBehaviour {
             if (rb != null) {
                 //add explosion force to this body with given parameters
                 rb.AddExplosionForce(explosionForce, transform.position, explosionRadius, explosionUpward);
+                
             }
         }
+        Destroy(this.gameObject);
         
         
 
@@ -103,7 +108,7 @@ public class Explosion : MonoBehaviour {
         //add rigidbody and set mass
         piece.AddComponent<Rigidbody>();
         piece.GetComponent<Rigidbody>().mass = 0.01f;
-        piece.AddComponent<Disapper>();
+        piece.AddComponent<Disappear>();
     }
 
 }

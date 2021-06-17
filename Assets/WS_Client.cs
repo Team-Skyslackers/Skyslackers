@@ -23,7 +23,7 @@ public class WS_Client : MonoBehaviour
     void Update()
     {
         lightsaber.transform.rotation = Quaternion.Euler(x, y, z);
-        lightsaber.transform.Translate(-0.01f,0f,0f);
+        //lightsaber.transform.Translate(-0.01f,0f,0f);
         // float posx = 0, posy = 0;
         // if(x <= 90){
         //     posx = x * 20.0 / 90.0;
