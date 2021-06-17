@@ -27,7 +27,6 @@ public class WS_Client : MonoBehaviour
         // if(x <= 90){
         //     posx = x * 20.0 / 90.0;
         // }
-        // if(x >=)
         // lightsaber.transform.position = 
     }
 }
