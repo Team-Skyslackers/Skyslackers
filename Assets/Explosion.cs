@@ -39,7 +39,7 @@ public class Explosion : MonoBehaviour {
     // }
 
     private void OnTriggerEnter(Collider other) {
-        if (other.gameObject.name == "Cylinder (1)") {
+        if (other.gameObject.name == "Circle.007") {
             explode();
             prev_time = Time.time;
             
