@@ -10,7 +10,7 @@ public class Explosion : MonoBehaviour {
     float cubesPivotDistance;
     Vector3 cubesPivot;
     
-    public GameObject part;
+    public Material myMaterial;
 
     public float explosionForce = 50f;
     public float explosionRadius = 4f;
@@ -107,8 +107,9 @@ public class Explosion : MonoBehaviour {
 
         //add rigidbody and set mass
         piece.AddComponent<Rigidbody>();
-        piece.GetComponent<Rigidbody>().mass = 0.01f;
+        piece.GetComponent<Rigidbody>().mass = 0.008f;
         piece.AddComponent<Disappear>();
+        // piece.AddComponent<MeshRenderer>().material = myMaterial;
     }
 
 }

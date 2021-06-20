@@ -125,11 +125,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33da28b899ee14ba19d75ee3afda75cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cubeSize: 0.2
-  cubesInRow: 5
-  part: {fileID: 0}
+  cubeSize: 0.1
+  cubesInRow: 10
+  myMaterial: {fileID: 2100000, guid: 32314ba6cfa407640bffbb7b20708949, type: 2}
   explosionForce: 50
-  explosionRadius: 4
-  explosionUpward: 0.4
+  explosionRadius: 1000
+  explosionUpward: 0
   counter: 0
   prev_time: 0
