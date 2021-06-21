@@ -17,12 +17,12 @@ public class Explosion : MonoBehaviour {
     public float explosionUpward = 0.4f;
     public int counter = 0;
     public float prev_time;
-    public AudioSource source;
+    // public AudioSource source;
 
     // Use this for initialization
     void Start() {
 
-        source = GetComponent<AudioSource>();
+        // source = GetComponent<AudioSource>();
         //calculate pivot distance
         cubesPivotDistance = cubeSize * cubesInRow / 2;
         //use this value to create pivot vector)
@@ -41,7 +41,6 @@ public class Explosion : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other) {
         if (other.gameObject.name == "Circle.007") {
-            //source.Play();
             Debug.Log("Sound played");
             explode();
             prev_time = Time.time;
