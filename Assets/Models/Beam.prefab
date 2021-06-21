@@ -54,7 +54,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1.5, y: 1.5, z: 1.5}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1011337665343725857
 MeshRenderer:
@@ -127,10 +127,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cubeSize: 0.1
   cubesInRow: 10
-  myMaterial: {fileID: 2100000, guid: 32314ba6cfa407640bffbb7b20708949, type: 2}
+  redMaterial: {fileID: 2100000, guid: 09a99b10658931c46a438c586a49ec65, type: 2}
+  goldMaterial: {fileID: 2100000, guid: 60d4adad90a8b164abbb7d8ff5b4118a, type: 2}
   explosionForce: 50
   explosionRadius: 1000
   explosionUpward: 0
   counter: 0
   prev_time: 0
-  source: {fileID: 0}
+  bolt_speed: 1

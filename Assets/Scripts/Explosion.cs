@@ -9,7 +9,10 @@ public class Explosion : MonoBehaviour {
     float cubesPivotDistance;
     Vector3 cubesPivot;
     
-    public Material myMaterial;
+    // public GameObject lightsaber;
+
+    public Material redMaterial;
+    public Material goldMaterial;
 
     public float explosionForce = 50f;
     public float explosionRadius = 4f;
@@ -32,7 +35,17 @@ public class Explosion : MonoBehaviour {
     }
     void Update()
     {
+        
         gameObject.transform.Translate(0f,0f,-bolt_speed);
+
+        if (gameObject.transform.position[2] < 40) {
+            if (gameObject.transform.position[2] > 5) 
+                gameObject.GetComponent<MeshRenderer>().material = goldMaterial;
+            else 
+                gameObject.GetComponent<MeshRenderer>().material = redMaterial;
+        }
+
+
         if (gameObject.transform.position[2]<-100){
             Destroy(this.gameObject);
         }
