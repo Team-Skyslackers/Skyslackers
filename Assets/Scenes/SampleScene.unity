@@ -959,6 +959,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   source: {fileID: 1297679361}
+  VFX_volume: 0.1
 --- !u!136 &1297679364
 CapsuleCollider:
   m_ObjectHideFlags: 0

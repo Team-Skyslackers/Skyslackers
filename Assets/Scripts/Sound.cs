@@ -6,6 +6,7 @@ public class Sound : MonoBehaviour
 {
     // Start is called before the first frame update
     public AudioSource source;
+    public float VFX_volume;
 
     void Start()
     {
@@ -13,9 +14,8 @@ public class Sound : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other) {
         Debug.Log("Sound played");
+        source.volume = VFX_volume;
         source.Play();
-        
-        
 
     }
     // Update is called once per frame
