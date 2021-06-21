@@ -6,7 +6,6 @@ public class Explosion : MonoBehaviour {
     
     public float cubeSize = 0.2f;
     public int cubesInRow = 5;
-
     float cubesPivotDistance;
     Vector3 cubesPivot;
     
@@ -19,6 +18,8 @@ public class Explosion : MonoBehaviour {
     public float prev_time;
     // public AudioSource source;
 
+
+    public  float bolt_speed = 1.0f;
     // Use this for initialization
     void Start() {
 
@@ -31,7 +32,10 @@ public class Explosion : MonoBehaviour {
     }
     void Update()
     {
-        gameObject.transform.Translate(0f,0f,-0.1f);
+        gameObject.transform.Translate(0f,0f,-bolt_speed);
+        if (gameObject.transform.position[2]<-100){
+            Destroy(this.gameObject);
+        }
     }
     // Update is called once per frame
     // void Update() {
@@ -40,7 +44,7 @@ public class Explosion : MonoBehaviour {
     // }
 
     private void OnTriggerEnter(Collider other) {
-        if (other.gameObject.name == "Circle.007") {
+        if (other.gameObject.name == "Lightsaber_Blade") {
             Debug.Log("Sound played");
             explode();
             prev_time = Time.time;
@@ -56,7 +60,6 @@ public class Explosion : MonoBehaviour {
             // }
         
         }
-
         
 
     }
@@ -90,11 +93,6 @@ public class Explosion : MonoBehaviour {
             }
         }
         Destroy(this.gameObject);
-        
-        
-
-        
-
     }
 
     void createPiece(int x, int y, int z) {
