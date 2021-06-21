@@ -41,7 +41,7 @@ public class Explosion : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other) {
         if (other.gameObject.name == "Circle.007") {
-            source.Play();
+            //source.Play();
             Debug.Log("Sound played");
             explode();
             prev_time = Time.time;
