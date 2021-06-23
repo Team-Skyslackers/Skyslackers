@@ -39,7 +39,7 @@ public class Explosion : MonoBehaviour {
         gameObject.transform.Translate(0f,0f,-bolt_speed);
 
         if (gameObject.transform.position[2] < 40) {
-            if (gameObject.transform.position[2] > 5) 
+            if (gameObject.transform.position[2] > 2) 
                 gameObject.GetComponent<MeshRenderer>().material = goldMaterial;
             else 
                 gameObject.GetComponent<MeshRenderer>().material = redMaterial;
