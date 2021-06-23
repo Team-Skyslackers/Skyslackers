@@ -445,6 +445,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Corridor
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 894a14341bcec4529b6673598a653017, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6335250783087129314, guid: 894a14341bcec4529b6673598a653017, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -676,8 +680,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d40aad41b7a0480d856977666b3b4b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  period: 2
+  songfile: {fileID: 4900000, guid: 4870abff59e5f4377a4f60eea3f5dce3, type: 3}
+  distance_from_player: 120
+  bolt_speed: 1
   beam: {fileID: 5692617128759409672, guid: 2a59f02df4a6f4101a53a45b4549bcc3, type: 3}
+  max_bolt_x: 10
+  max_bolt_y: 10
 --- !u!1001 &1182222249
 PrefabInstance:
   m_ObjectHideFlags: 0

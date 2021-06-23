@@ -7,7 +7,8 @@ public class WS_Client : MonoBehaviour
 {
     public GameObject lightsaber;
     private float x = 0, y = 0, z = 0;
-    private float raw_x = 0, raw_y = 0, raw_z = 0;
+    private float raw_x = 0, raw_y = 0;
+    // private float raw_z = 0;
     private float pos_x = 0, pos_y = 0;
     WebSocket ws;
     private void Start()

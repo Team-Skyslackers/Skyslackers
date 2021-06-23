@@ -1,7 +1,8 @@
 fileFormatVersion: 2
-guid: c91c1eb85782d5748ace27eb4d7415bb
+guid: d3f979b4b26a0456b96fd5ee4ed96419
 SpeedTreeImporter:
-  serializedVersion: 4
+  externalObjects: {}
+  serializedVersion: 6
   mainColor: {r: 1, g: 1, b: 1, a: 1}
   hueVariation: {r: 1, g: 0.5, b: 0, a: 0.1}
   alphaTestRef: 0.33
@@ -15,6 +16,7 @@ SpeedTreeImporter:
     reflectionProbeUsage: 1
     enableBump: 1
     enableHue: 1
+    enableSubsurface: 1
     windQuality: 4
   - height: 0.25
     castShadows: 1
@@ -23,6 +25,7 @@ SpeedTreeImporter:
     reflectionProbeUsage: 1
     enableBump: 1
     enableHue: 1
+    enableSubsurface: 1
     windQuality: 4
   - height: 0.125
     castShadows: 1
@@ -31,14 +34,16 @@ SpeedTreeImporter:
     reflectionProbeUsage: 1
     enableBump: 1
     enableHue: 1
+    enableSubsurface: 1
     windQuality: 4
   - height: 0.01
-    castShadows: 0
-    receiveShadows: 0
+    castShadows: 1
+    receiveShadows: 1
     useLightProbes: 0
     reflectionProbeUsage: 0
     enableBump: 1
     enableHue: 1
+    enableSubsurface: 1
     windQuality: 1
   enableSmoothLODTransition: 1
   animateCrossFading: 1
@@ -46,6 +51,8 @@ SpeedTreeImporter:
   fadeOutWidth: 0.25
   scaleFactor: 0.3048
   materialVersion: 3
+  materialLocation: 1
+  fileIDType: 2
   userData: 
   assetBundleName: 
   assetBundleVariant: 
