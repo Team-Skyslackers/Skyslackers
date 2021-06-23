@@ -127,6 +127,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cubeSize: 0.1
   cubesInRow: 10
+  text_perfect: {fileID: 4435834374788031340, guid: e52fd82ad44fe44a49ff9813d8a17610, type: 3}
+  text_good: {fileID: 0}
   redMaterial: {fileID: 2100000, guid: 09a99b10658931c46a438c586a49ec65, type: 2}
   goldMaterial: {fileID: 2100000, guid: 60d4adad90a8b164abbb7d8ff5b4118a, type: 2}
   explosionForce: 50

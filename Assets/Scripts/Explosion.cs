@@ -8,6 +8,9 @@ public class Explosion : MonoBehaviour {
     public int cubesInRow = 5;
     float cubesPivotDistance;
     Vector3 cubesPivot;
+    public GameObject text_perfect;
+    public GameObject text_good;
+    private string colour;
     
     // public GameObject lightsaber;
 
@@ -28,6 +31,7 @@ public class Explosion : MonoBehaviour {
 
         // source = GetComponent<AudioSource>();
         //calculate pivot distance
+        colour = "green";
         cubesPivotDistance = cubeSize * cubesInRow / 2;
         //use this value to create pivot vector)
         cubesPivot = new Vector3(cubesPivotDistance, cubesPivotDistance, cubesPivotDistance);
@@ -37,12 +41,16 @@ public class Explosion : MonoBehaviour {
     {
         
         gameObject.transform.Translate(0f,0f,-bolt_speed);
-
         if (gameObject.transform.position[2] < 40) {
-            if (gameObject.transform.position[2] > 2) 
+            if (gameObject.transform.position[2] > 2) {
                 gameObject.GetComponent<MeshRenderer>().material = goldMaterial;
-            else 
+                colour = "gold";
+            }
+            else {
                 gameObject.GetComponent<MeshRenderer>().material = redMaterial;
+                colour = "red";
+            }
+                
         }
 
 
@@ -59,6 +67,11 @@ public class Explosion : MonoBehaviour {
     private void OnTriggerEnter(Collider other) {
         if (other.gameObject.name == "Lightsaber_Blade") {
             Debug.Log("Sound played");
+            if (colour == "gold"){
+                Vector3 ex_pt = transform.position;
+                Instantiate(text_perfect, new Vector3(ex_pt[0], ex_pt[1]+2, ex_pt[2]), Quaternion.identity);
+            }
+            
             explode();
             prev_time = Time.time;
             
