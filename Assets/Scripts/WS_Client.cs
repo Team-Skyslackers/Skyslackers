@@ -17,7 +17,7 @@ public class WS_Client : MonoBehaviour
         ws.Connect();
         ws.OnMessage += (sender, e) =>
         {
-            Debug.Log(e.Data);
+            //Debug.Log(e.Data);
             raw_x = float.Parse(e.Data.Split(' ')[1]);
             raw_y = float.Parse(e.Data.Split(' ')[0]);
             y = -raw_y;
