@@ -5,7 +5,7 @@ using UnityEngine;
 public class Generate : MonoBehaviour
 {
     public TextAsset songfile;
-    public float distance_from_player = 120, bolt_speed = 1;
+    public float distance_from_player = 120, bolt_speed = 1; // bolt speed = unit distance travelled per frame
     Song currentSong;
     public GameObject beam;
     public float max_bolt_x = 4, max_bolt_y = 4;
@@ -17,7 +17,7 @@ public class Generate : MonoBehaviour
         currentSong = new Song(songfile, distance_from_player, bolt_speed);
         Debug.Log(currentSong.raw_file);
         StartTime = Time.time;
-        NextBoltTime = StartTime + currentSong.GetAdjustedTime();
+        NextBoltTime = StartTime + currentSong.GetTime();
         NextBoltType = currentSong.GetBoltType();
         currentSong.PrepareNext();
     }
@@ -27,7 +27,7 @@ public class Generate : MonoBehaviour
         if (Time.time > NextBoltTime && NextBoltType != "end") {
             InstantiateAtPosition(NextBoltType.ToCharArray()[0]);
 
-            NextBoltTime = StartTime + currentSong.GetAdjustedTime();
+            NextBoltTime = StartTime + currentSong.GetTime();
             NextBoltType = currentSong.GetBoltType();
             currentSong.PrepareNext();
         }
@@ -37,16 +37,16 @@ public class Generate : MonoBehaviour
     {
         // assume 123QEASD cooresponds to 8 possible positions on screen.
         float x, y;
-        if (pos == '1' || pos == 'Q' || pos == 'A')
+        if (pos == 'Q' || pos == 'A' || pos == 'Z')
             x = -max_bolt_x;
-        else if (pos == '2' || pos == 'S')
+        else if (pos == 'W' || pos == 'X')
             x = 0;
         else
             x = max_bolt_x;
 
-        if (pos == '1' || pos == '2' || pos == '3')
+        if (pos == 'Q' || pos == 'W' || pos == 'E')
             y = max_bolt_y;
-        else if (pos == 'Q' || pos == 'E')
+        else if (pos == 'A' || pos == 'D')
             y = 0;
         else
             y = -max_bolt_y;
@@ -80,6 +80,23 @@ public class Song
             return "";
     }
 
+    public float GetTime()
+    {
+        if (current_line < line_count)
+        {
+            string[] timeComponent = each_line[current_line].Split(',')[0].Split('/');
+            // assume time data follow the following convention:
+            //                   7394761/720000
+            // which corresponds to seconds
+            float generationTime = float.Parse(timeComponent[0])
+                / float.Parse(timeComponent[1])
+                - distance_from_player / bolt_speed / 60;
+            return generationTime;
+        }
+        else
+            return 10000;
+    }
+
     public float GetAdjustedTime()
     {
         if (current_line < line_count)
@@ -88,9 +105,9 @@ public class Song
             // assume time data follow the following convention:
             //                   03:26:59
             //         minutes : seconds : per 60 seconds
-            float generationTime = int.Parse(timeComponent[0]) * 60
-                + int.Parse(timeComponent[1])
-                + (float)int.Parse(timeComponent[2]) / 60
+            float generationTime = float.Parse(timeComponent[0]) * 60
+                + float.Parse(timeComponent[1])
+                + float.Parse(timeComponent[2]) / 60
                 - distance_from_player / bolt_speed / 60;
 
             //Debug.Log(generationTime.ToString("N"));
