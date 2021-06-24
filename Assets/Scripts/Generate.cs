@@ -13,7 +13,8 @@ public class Generate : MonoBehaviour
     Song currentSong;
     public GameObject beam;
     public GameObject canvas;
-    public float max_bolt_x = 4, max_bolt_y = 4;
+    public float bolt_x_offset = 0, bolt_y_offset = 3;
+    public float max_bolt_x = 10, max_bolt_y = 10;
     float StartTime, NextBoltTime;
     string NextBoltType;
     int totalBolts;
@@ -58,7 +59,7 @@ public class Generate : MonoBehaviour
         else
             y = -max_bolt_y;
 
-        Instantiate(beam, new Vector3(x, y, distance_from_player), Quaternion.identity);
+        Instantiate(beam, new Vector3(bolt_x_offset + x, bolt_y_offset + y, distance_from_player), Quaternion.identity);
     }
 }
 
