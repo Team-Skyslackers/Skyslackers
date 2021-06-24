@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cubeSize: 0.1
-  cubesInRow: 10
+  cubesInRow: 5
   text_perfect: {fileID: 4435834374788031340, guid: e52fd82ad44fe44a49ff9813d8a17610, type: 3}
   text_good: {fileID: 415488077078663380, guid: a95cee147d4f1424992ec5ba649df4b4, type: 3}
   text_miss: {fileID: 6603358586817706851, guid: b0124218d2d6143119ce74d5a50f56ce, type: 3}
