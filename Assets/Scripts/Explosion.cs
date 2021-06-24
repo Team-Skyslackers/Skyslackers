@@ -41,7 +41,7 @@ public class Explosion : MonoBehaviour {
     }
     void Update()
     {
-        Debug.Log(miss);
+        // Debug.Log(miss);
         gameObject.transform.Translate(0f,0f,-bolt_speed);
         if (gameObject.transform.position[2] < 30) {
             if (gameObject.transform.position[2] > 10) {
@@ -57,11 +57,12 @@ public class Explosion : MonoBehaviour {
                     gameObject.GetComponent<MeshRenderer>().material = redMaterial;
                     colour = "red";
                     if (miss == 0){
-                    miss = 1; 
-                    Vector3 ex_pt = gameObject.transform.position;
-                    Instantiate(text_miss, new Vector3(ex_pt[0], ex_pt[1], ex_pt[2]), Quaternion.identity);
-                    Debug.Log(gameObject);
-                }
+                        miss = 1; 
+                        Generate.myCombo = 0;
+                        Vector3 ex_pt = gameObject.transform.position;
+                        Instantiate(text_miss, new Vector3(ex_pt[0], ex_pt[1], ex_pt[2]), Quaternion.identity);
+                        // Debug.Log(gameObject);
+                    }
                 }
                 
             }
@@ -82,15 +83,21 @@ public class Explosion : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other) {
         if (other.gameObject.name == "Lightsaber_Blade") {
-            Debug.Log("Sound played");
+            // Debug.Log("Sound played");
             if (colour == "gold"){
-                Generate.myScore += 20;
+                if (Generate.myCombo > 0) {
+                    Generate.myScore += 40;
+                }
+                else Generate.myScore += 20;
+                Generate.myCombo += 1;
+                // Debug.Log(Generate.myCombo);
                 Vector3 ex_pt = transform.position;
                 Instantiate(text_perfect, new Vector3(ex_pt[0], ex_pt[1], ex_pt[2]), Quaternion.identity);
             }
             else {
                 if (colour == "green") {
                     Generate.myScore += 10;
+                    Generate.myCombo = 0;
                     Vector3 ex_pt = transform.position;
                     Instantiate(text_good, new Vector3(ex_pt[0], ex_pt[1], ex_pt[2]), Quaternion.identity);
                 }
@@ -99,7 +106,7 @@ public class Explosion : MonoBehaviour {
             explode();
             prev_time = Time.time;
             
-            Debug.Log(Time.time);
+            // Debug.Log(Time.time);
             // while (Time.time - prev_time < 1){
             //     Debug.Log(Time.time);
             // }

@@ -8,11 +8,14 @@ using UnityEngine.UI;
 public class Generate : MonoBehaviour
 {
     public static int myScore = 0;
+    public static int myCombo = 0;
     public TextAsset songfile;
     public float distance_from_player = 120, bolt_speed = 1; // bolt speed = unit distance travelled per frame
     Song currentSong;
     public GameObject beam;
-    public GameObject canvas;
+    public GameObject score;
+    public GameObject combo;
+    public GameObject combo_num;
     public float max_bolt_x = 4, max_bolt_y = 4;
     float StartTime, NextBoltTime;
     string NextBoltType;
@@ -21,7 +24,7 @@ public class Generate : MonoBehaviour
     void Start()
     {
         currentSong = new Song(songfile, distance_from_player, bolt_speed);
-        Debug.Log(currentSong.raw_file);
+        // Debug.Log(currentSong.raw_file);
         StartTime = Time.time;
         NextBoltTime = StartTime + currentSong.GetTime();
         NextBoltType = currentSong.GetBoltType();
@@ -37,7 +40,16 @@ public class Generate : MonoBehaviour
             NextBoltType = currentSong.GetBoltType();
             currentSong.PrepareNext();
         }
-        canvas.GetComponent<Text>().text = "YOUR SCORE: " + myScore;
+        score.GetComponent<Text>().text = " " + myScore + " ";
+        if (myCombo > 0) {
+            combo.GetComponent<Text>().text = "Combo";
+            combo_num.GetComponent<Text>().text = " " + myCombo;
+        }
+        else {
+            combo.GetComponent<Text>().text = "";
+            combo_num.GetComponent<Text>().text = "";
+        }
+        
     }
 
     void InstantiateAtPosition(char pos)
@@ -128,7 +140,7 @@ public class Song
     {
         if (current_line < line_count)
         {
-            Debug.Log(each_line[current_line].Split(',')[1]);
+            // Debug.Log(each_line[current_line].Split(',')[1]);
             return each_line[current_line].Split(',')[1];
         }
         else
