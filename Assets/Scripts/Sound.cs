@@ -13,10 +13,11 @@ public class Sound : MonoBehaviour
         source = GetComponent<AudioSource>();
     }
     private void OnTriggerEnter(Collider other) {
+        if (other.gameObject.name == "Beam(Clone)"){
         Debug.Log("Sound played");
         source.volume = VFX_volume;
         source.Play();
-
+        }
     }
     // Update is called once per frame
     void Update()
