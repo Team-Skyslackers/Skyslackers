@@ -1,17 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
+
 
 public class Generate : MonoBehaviour
 {
+    public static int myScore = 0;
     public TextAsset songfile;
     public float distance_from_player = 120, bolt_speed = 1; // bolt speed = unit distance travelled per frame
     Song currentSong;
     public GameObject beam;
+    public GameObject canvas;
     public float max_bolt_x = 4, max_bolt_y = 4;
     float StartTime, NextBoltTime;
     string NextBoltType;
     int totalBolts;
+
     void Start()
     {
         currentSong = new Song(songfile, distance_from_player, bolt_speed);
@@ -31,6 +37,7 @@ public class Generate : MonoBehaviour
             NextBoltType = currentSong.GetBoltType();
             currentSong.PrepareNext();
         }
+        canvas.GetComponent<Text>().text = "YOUR SCORE: " + myScore;
     }
 
     void InstantiateAtPosition(char pos)

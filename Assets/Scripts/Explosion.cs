@@ -84,11 +84,13 @@ public class Explosion : MonoBehaviour {
         if (other.gameObject.name == "Lightsaber_Blade") {
             Debug.Log("Sound played");
             if (colour == "gold"){
+                Generate.myScore += 20;
                 Vector3 ex_pt = transform.position;
                 Instantiate(text_perfect, new Vector3(ex_pt[0], ex_pt[1], ex_pt[2]), Quaternion.identity);
             }
             else {
                 if (colour == "green") {
+                    Generate.myScore += 10;
                     Vector3 ex_pt = transform.position;
                     Instantiate(text_good, new Vector3(ex_pt[0], ex_pt[1], ex_pt[2]), Quaternion.identity);
                 }
