@@ -8,7 +8,7 @@ public class Generate : MonoBehaviour
     public float distance_from_player = 120, bolt_speed = 1; // bolt speed = unit distance travelled per frame
     Song currentSong;
     public GameObject beam;
-    public float max_bolt_x = 4, max_bolt_y = 4;
+    public float max_bolt_x = 10, max_bolt_y = 10;
     float StartTime, NextBoltTime;
     string NextBoltType;
     int totalBolts;
