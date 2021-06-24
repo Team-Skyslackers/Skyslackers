@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4435834374788031340
+--- !u!1 &415488077078663380
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,24 +8,24 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1010488639252172175}
-  - component: {fileID: 7113867988163152756}
-  - component: {fileID: 3172915344454047818}
-  - component: {fileID: 7874166609392116733}
+  - component: {fileID: 3757409707779713342}
+  - component: {fileID: 3382034350576089772}
+  - component: {fileID: 8160294083903484244}
+  - component: {fileID: -7356663182553968762}
   m_Layer: 0
-  m_Name: Perfect
+  m_Name: Good
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &1010488639252172175
+--- !u!224 &3757409707779713342
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4435834374788031340}
+  m_GameObject: {fileID: 415488077078663380}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
@@ -38,13 +38,13 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!23 &7113867988163152756
+--- !u!23 &3382034350576089772
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4435834374788031340}
+  m_GameObject: {fileID: 415488077078663380}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -79,13 +79,13 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &3172915344454047818
+--- !u!114 &8160294083903484244
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4435834374788031340}
+  m_GameObject: {fileID: 415488077078663380}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
@@ -99,7 +99,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Perfect
+  m_text: GOOD
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5d7cd5670795b4ec4aae26984cb4b4fe, type: 2}
   m_sharedMaterial: {fileID: -5861948711074595987, guid: 5d7cd5670795b4ec4aae26984cb4b4fe, type: 2}
@@ -108,8 +108,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278775037
-  m_fontColor: {r: 0.990566, g: 0.92525136, b: 0.032707386, a: 1}
+    rgba: 4285657875
+  m_fontColor: {r: 0.0764062, g: 0.9528302, b: 0.4447342, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -166,18 +166,18 @@ MonoBehaviour:
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
-  m_renderer: {fileID: 7113867988163152756}
+  m_renderer: {fileID: 3382034350576089772}
   m_maskType: 0
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
---- !u!114 &7874166609392116733
+--- !u!114 &-7356663182553968762
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4435834374788031340}
+  m_GameObject: {fileID: 415488077078663380}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4fe98ccf6be914278b844e0309bd7886, type: 3}

@@ -685,8 +685,8 @@ MonoBehaviour:
   distance_from_player: 120
   bolt_speed: 1
   beam: {fileID: 5692617128759409672, guid: 2a59f02df4a6f4101a53a45b4549bcc3, type: 3}
-  max_bolt_x: 10
-  max_bolt_y: 10
+  max_bolt_x: 4
+  max_bolt_y: 4
 --- !u!82 &963194231
 AudioSource:
   m_ObjectHideFlags: 0
