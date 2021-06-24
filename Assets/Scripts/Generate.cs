@@ -13,10 +13,11 @@ public class Generate : MonoBehaviour
     public float distance_from_player = 120, bolt_speed = 1; // bolt speed = unit distance travelled per frame
     Song currentSong;
     public GameObject beam;
-    public GameObject score;
-    public GameObject combo;
-    public GameObject combo_num;
     public float max_bolt_x = 4, max_bolt_y = 4;
+    public float bolt_x_offset = 0, bolt_y_offset = 3;
+    public GameObject combo_num;
+    public GameObject combo;
+    public GameObject score;
     float StartTime, NextBoltTime;
     string NextBoltType;
     int totalBolts;
@@ -70,7 +71,7 @@ public class Generate : MonoBehaviour
         else
             y = -max_bolt_y;
 
-        Instantiate(beam, new Vector3(x, y, distance_from_player), Quaternion.identity);
+        Instantiate(beam, new Vector3(bolt_x_offset + x, bolt_y_offset + y, distance_from_player), Quaternion.identity);
     }
 }
 

@@ -62,7 +62,6 @@ public class Explosion : MonoBehaviour {
                         Vector3 ex_pt = gameObject.transform.position;
                         Instantiate(text_miss, new Vector3(ex_pt[0], ex_pt[1], ex_pt[2]), Quaternion.identity);
                         // Debug.Log(gameObject);
-                    }
                 }
                 
             }
@@ -75,11 +74,6 @@ public class Explosion : MonoBehaviour {
             Destroy(this.gameObject);
         }
     }
-    // Update is called once per frame
-    // void Update() {
-    //     counter += 1;
-    //     Debug.Log(counter);
-    // }
 
     private void OnTriggerEnter(Collider other) {
         if (other.gameObject.name == "Lightsaber_Blade") {
