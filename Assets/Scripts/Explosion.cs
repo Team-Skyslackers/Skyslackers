@@ -8,9 +8,14 @@ public class Explosion : MonoBehaviour {
     public int cubesInRow = 5;
     float cubesPivotDistance;
     Vector3 cubesPivot;
+    public GameObject text_perfect;
+    public GameObject text_good;
+    public GameObject text_miss;
+    private string colour;
     
     // public GameObject lightsaber;
 
+    public Material greenMaterial;
     public Material redMaterial;
     public Material goldMaterial;
 
@@ -19,15 +24,16 @@ public class Explosion : MonoBehaviour {
     public float explosionUpward = 0.4f;
     public int counter = 0;
     public float prev_time;
+    public int miss = 0;
     // public AudioSource source;
 
 
     public  float bolt_speed = 1.0f;
     // Use this for initialization
     void Start() {
-
         // source = GetComponent<AudioSource>();
         //calculate pivot distance
+        colour = "green";
         cubesPivotDistance = cubeSize * cubesInRow / 2;
         //use this value to create pivot vector)
         cubesPivot = new Vector3(cubesPivotDistance, cubesPivotDistance, cubesPivotDistance);
@@ -35,14 +41,32 @@ public class Explosion : MonoBehaviour {
     }
     void Update()
     {
-        
+        Debug.Log(miss);
         gameObject.transform.Translate(0f,0f,-bolt_speed);
-
-        if (gameObject.transform.position[2] < 40) {
-            if (gameObject.transform.position[2] > 2) 
+        if (gameObject.transform.position[2] < 30) {
+            if (gameObject.transform.position[2] > 10) {
                 gameObject.GetComponent<MeshRenderer>().material = goldMaterial;
-            else 
-                gameObject.GetComponent<MeshRenderer>().material = redMaterial;
+                colour = "gold";
+            }
+            else {
+                if (gameObject.transform.position[2] > 0) {
+                    gameObject.GetComponent<MeshRenderer>().material = greenMaterial;
+                    colour = "green";
+                }
+                else {
+                    gameObject.GetComponent<MeshRenderer>().material = redMaterial;
+                    colour = "red";
+                    if (miss == 0){
+                    miss = 1; 
+                    Vector3 ex_pt = gameObject.transform.position;
+                    Instantiate(text_miss, new Vector3(ex_pt[0], ex_pt[1], ex_pt[2]), Quaternion.identity);
+                    Debug.Log(gameObject);
+                }
+                }
+                
+            }
+                
+                //used to be 2~40
         }
 
 
@@ -59,6 +83,17 @@ public class Explosion : MonoBehaviour {
     private void OnTriggerEnter(Collider other) {
         if (other.gameObject.name == "Lightsaber_Blade") {
             Debug.Log("Sound played");
+            if (colour == "gold"){
+                Vector3 ex_pt = transform.position;
+                Instantiate(text_perfect, new Vector3(ex_pt[0], ex_pt[1], ex_pt[2]), Quaternion.identity);
+            }
+            else {
+                if (colour == "green") {
+                    Vector3 ex_pt = transform.position;
+                    Instantiate(text_good, new Vector3(ex_pt[0], ex_pt[1], ex_pt[2]), Quaternion.identity);
+                }
+            }
+            
             explode();
             prev_time = Time.time;
             

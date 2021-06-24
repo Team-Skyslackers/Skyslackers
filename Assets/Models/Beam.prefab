@@ -127,6 +127,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cubeSize: 0.1
   cubesInRow: 10
+  text_perfect: {fileID: 4435834374788031340, guid: e52fd82ad44fe44a49ff9813d8a17610, type: 3}
+  text_good: {fileID: 415488077078663380, guid: a95cee147d4f1424992ec5ba649df4b4, type: 3}
+  text_miss: {fileID: 6603358586817706851, guid: b0124218d2d6143119ce74d5a50f56ce, type: 3}
+  greenMaterial: {fileID: 2100000, guid: 32314ba6cfa407640bffbb7b20708949, type: 2}
   redMaterial: {fileID: 2100000, guid: 09a99b10658931c46a438c586a49ec65, type: 2}
   goldMaterial: {fileID: 2100000, guid: 60d4adad90a8b164abbb7d8ff5b4118a, type: 2}
   explosionForce: 50
@@ -134,4 +138,5 @@ MonoBehaviour:
   explosionUpward: 0
   counter: 0
   prev_time: 0
+  miss: 0
   bolt_speed: 1
