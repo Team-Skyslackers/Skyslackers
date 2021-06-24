@@ -22,7 +22,7 @@ public class Generate : MonoBehaviour
     void Start()
     {
         currentSong = new Song(songfile, distance_from_player, bolt_speed);
-        Debug.Log(currentSong.raw_file);
+        //Debug.Log(currentSong.raw_file);
         StartTime = Time.time;
         NextBoltTime = StartTime + currentSong.GetTime();
         NextBoltType = currentSong.GetBoltType();
@@ -129,7 +129,7 @@ public class Song
     {
         if (current_line < line_count)
         {
-            Debug.Log(each_line[current_line].Split(',')[1]);
+            //Debug.Log(each_line[current_line].Split(',')[1]);
             return each_line[current_line].Split(',')[1];
         }
         else
