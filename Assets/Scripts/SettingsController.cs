@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class SettingsController : MonoBehaviour
 {
-    public static float SFX_volume = 0.3f, bolt_speed = 1;  // bolt speed = unit distance travelled per frame
+    public static float SFX_volume = 0.3f, bolt_speed = 2;  // bolt speed = unit distance travelled per frame
     public Slider SFX_slider, bolt_speed_slider;
     public Text SFX_display, bolt_speed_display;
 
