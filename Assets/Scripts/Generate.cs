@@ -10,7 +10,7 @@ public class Generate : MonoBehaviour
     public static int myScore = 0;
     public static int myCombo = 0;
     public TextAsset songfile;
-    public float distance_from_player = 120, bolt_speed = 1; // bolt speed = unit distance travelled per frame
+    public float distance_from_player = 120;
     Song currentSong;
     public GameObject beam;
     public float max_bolt_x = 4, max_bolt_y = 4;
@@ -24,7 +24,7 @@ public class Generate : MonoBehaviour
 
     void Start()
     {
-        currentSong = new Song(songfile, distance_from_player, bolt_speed);
+        currentSong = new Song(songfile, distance_from_player, SettingsController.bolt_speed);
         // Debug.Log(currentSong.raw_file);
         StartTime = Time.time;
         NextBoltTime = StartTime + currentSong.GetTime();

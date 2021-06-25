@@ -6,7 +6,6 @@ public class Sound : MonoBehaviour
 {
     // Start is called before the first frame update
     public AudioSource source;
-    public float VFX_volume;
 
     void Start()
     {
@@ -15,7 +14,7 @@ public class Sound : MonoBehaviour
     private void OnTriggerEnter(Collider other) {
         if (other.gameObject.name == "Beam(Clone)"){
         // Debug.Log("Sound played");
-        source.volume = VFX_volume;
+        source.volume = SettingsController.SFX_volume;
         source.Play();
         }
     }
