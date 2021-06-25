@@ -28,7 +28,6 @@ public class Explosion : MonoBehaviour {
     // public AudioSource source;
 
 
-    public  float bolt_speed = 1.0f;
     // Use this for initialization
     void Start() {
         // source = GetComponent<AudioSource>();
@@ -42,7 +41,7 @@ public class Explosion : MonoBehaviour {
     void Update()
     {
         // Debug.Log(miss);
-        gameObject.transform.Translate(0f,0f,-bolt_speed);
+        gameObject.transform.Translate(0f,0f,-SettingsController.bolt_speed);
         if (gameObject.transform.position[2] < 30) {
             if (gameObject.transform.position[2] > 10) {
                 gameObject.GetComponent<MeshRenderer>().material = goldMaterial;
@@ -83,7 +82,6 @@ public class Explosion : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other) {
         if (other.gameObject.name == "Lightsaber_Blade") {
-            // Debug.Log("Sound played");
             if (colour == "gold"){
                 if (Generate.myCombo > 0) {
                     Generate.myScore += 40;
