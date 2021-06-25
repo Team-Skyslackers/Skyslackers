@@ -133,10 +133,10 @@ MonoBehaviour:
   greenMaterial: {fileID: 2100000, guid: 32314ba6cfa407640bffbb7b20708949, type: 2}
   redMaterial: {fileID: 2100000, guid: 09a99b10658931c46a438c586a49ec65, type: 2}
   goldMaterial: {fileID: 2100000, guid: 60d4adad90a8b164abbb7d8ff5b4118a, type: 2}
+  cubeMaterial: {fileID: 2100000, guid: f609eeb68dc1d47a48e09dc7d34d8114, type: 2}
   explosionForce: 50
   explosionRadius: 1000
   explosionUpward: 0
   counter: 0
   prev_time: 0
   miss: 0
-  bolt_speed: 1

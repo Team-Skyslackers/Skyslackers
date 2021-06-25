@@ -8,5 +8,7 @@ public class ChangeScene : MonoBehaviour
     public void NextScene()
     {
         SceneManager.LoadScene(target_scene);
+        Generate.myScore = 0;//reset scores & combo
+        Generate.myCombo = 0;
     }
 }

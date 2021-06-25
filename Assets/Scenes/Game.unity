@@ -1179,6 +1179,7 @@ MonoBehaviour:
   combo_num: {fileID: 1101995245}
   combo: {fileID: 1092407601}
   score: {fileID: 31823903}
+  time_offset: 0.3
 --- !u!82 &963194231
 AudioSource:
   m_ObjectHideFlags: 0

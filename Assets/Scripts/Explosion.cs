@@ -18,6 +18,7 @@ public class Explosion : MonoBehaviour {
     public Material greenMaterial;
     public Material redMaterial;
     public Material goldMaterial;
+    public Material cubeMaterial;
 
     public float explosionForce = 50f;
     public float explosionRadius = 4f;
@@ -159,12 +160,13 @@ public class Explosion : MonoBehaviour {
         //set piece position and scale
         piece.transform.position = transform.position + new Vector3(cubeSize * x, cubeSize * y, cubeSize * z) - cubesPivot;
         piece.transform.localScale = new Vector3(cubeSize, cubeSize, cubeSize);
+        piece.GetComponent<MeshRenderer>().material = cubeMaterial;
 
         //add rigidbody and set mass
         piece.AddComponent<Rigidbody>();
         piece.GetComponent<Rigidbody>().mass = 0.008f;
         piece.AddComponent<Disappear>();
-        // piece.AddComponent<MeshRenderer>().material = myMaterial;
+        
     }
 
 }
