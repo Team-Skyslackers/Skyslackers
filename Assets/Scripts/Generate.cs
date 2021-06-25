@@ -19,6 +19,7 @@ public class Generate : MonoBehaviour
     public GameObject combo;
     public GameObject score;
     float StartTime, NextBoltTime;
+    public float time_offset;
     string NextBoltType;
     int totalBolts;
 
@@ -27,7 +28,7 @@ public class Generate : MonoBehaviour
         currentSong = new Song(songfile, distance_from_player, SettingsController.bolt_speed);
         // Debug.Log(currentSong.raw_file);
         StartTime = Time.time;
-        NextBoltTime = StartTime + currentSong.GetTime();
+        NextBoltTime = StartTime + currentSong.GetTime() + time_offset;
         NextBoltType = currentSong.GetBoltType();
         currentSong.PrepareNext();
     }
@@ -37,7 +38,7 @@ public class Generate : MonoBehaviour
         if (Time.time > NextBoltTime && NextBoltType != "end") {
             InstantiateAtPosition(NextBoltType.ToCharArray()[0]);
 
-            NextBoltTime = StartTime + currentSong.GetTime();
+            NextBoltTime = StartTime + currentSong.GetTime() + time_offset;
             NextBoltType = currentSong.GetBoltType();
             currentSong.PrepareNext();
         }
