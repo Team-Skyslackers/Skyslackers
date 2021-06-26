@@ -43,7 +43,7 @@ public class WS_Client : MonoBehaviour
         pos_y = (raw_x > 90)? 180.0f-raw_x:((raw_x<-90)? -180.0f - raw_x:raw_x);
         pos_x = (raw_x > 90 || raw_x < -90)? -pos_x:pos_x;
         new_av(pos_x, pos_y);
-        Debug.Log(blade_av.ToString("N"));
+        // Debug.Log(blade_av.ToString("N"));
         lightsaber.transform.position = new Vector3(pos_x/9.0f, pos_y/9.0f,0);
     }
 

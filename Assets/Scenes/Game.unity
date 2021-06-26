@@ -6905,7 +6905,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d40aad41b7a0480d856977666b3b4b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  songfile: {fileID: 4900000, guid: 1625e81a968e24078ba35ccf2e6da024, type: 3}
+  songfile: {fileID: 4900000, guid: 73d698fcdbc124231b56971a70511412, type: 3}
   distance_from_player: 120
   musicFile: {fileID: 963194231}
   beam: {fileID: 5692617128759409672, guid: 2a59f02df4a6f4101a53a45b4549bcc3, type: 3}
@@ -6926,7 +6926,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 2ec66f5e81d2b4e38aca811c38759a65, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 310bc7b82b58648369347f36bf2a2e63, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

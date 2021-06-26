@@ -39,7 +39,9 @@ public class Generate : MonoBehaviour
     {
         // alter game settings
         musicFile.volume = SettingsController.music_volume;
-
+        // Debug.Log("current time" + musicFile.time);
+        // Debug.Log("vs");
+        // Debug.Log("nextbolttime" + NextBoltTime);
         if (musicFile.time > NextBoltTime && NextBoltType != "end") {
             InstantiateAtPosition(NextBoltType.ToCharArray()[0]);
 
