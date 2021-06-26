@@ -15,7 +15,7 @@ public class Sound : MonoBehaviour
         if (other.gameObject.name == "Beam(Clone)"){
         // Debug.Log("Sound played");
         source.volume = SettingsController.SFX_volume;
-        source.Play();
+        source.Play(); 
         }
     }
     // Update is called once per frame

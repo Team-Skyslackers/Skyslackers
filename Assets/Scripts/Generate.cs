@@ -11,7 +11,10 @@ public class Generate : MonoBehaviour
     public static int myCombo = 0;
     public TextAsset songfile;
     public float distance_from_player = 120;
+
     Song currentSong;
+    public AudioSource musicFile;
+
     public GameObject beam;
     public float max_bolt_x = 4, max_bolt_y = 4;
     public float bolt_x_offset = 0, bolt_y_offset = 3;
@@ -19,26 +22,28 @@ public class Generate : MonoBehaviour
     public GameObject combo;
     public GameObject score;
     float StartTime, NextBoltTime;
-    public float time_offset;
     string NextBoltType;
-    int totalBolts;
 
     void Start()
     {
         currentSong = new Song(songfile, distance_from_player, SettingsController.bolt_speed);
         // Debug.Log(currentSong.raw_file);
-        StartTime = Time.time;
-        NextBoltTime = StartTime + currentSong.GetTime() + time_offset;
+        musicFile.Play();
+        //StartTime = Time.time;
+        NextBoltTime = currentSong.GetTime() + SettingsController.music_delay;
         NextBoltType = currentSong.GetBoltType();
         currentSong.PrepareNext();
     }
 
     void Update()
     {
-        if (Time.time > NextBoltTime && NextBoltType != "end") {
+        // alter game settings
+        musicFile.volume = SettingsController.music_volume;
+
+        if (musicFile.time > NextBoltTime && NextBoltType != "end") {
             InstantiateAtPosition(NextBoltType.ToCharArray()[0]);
 
-            NextBoltTime = StartTime + currentSong.GetTime() + time_offset;
+            NextBoltTime = currentSong.GetTime() + SettingsController.music_delay;
             NextBoltType = currentSong.GetBoltType();
             currentSong.PrepareNext();
         }
