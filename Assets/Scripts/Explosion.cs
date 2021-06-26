@@ -81,8 +81,8 @@ public class Explosion : MonoBehaviour {
     //     Debug.Log(counter);
     // }
 
-    private void OnTriggerEnter(Collider other) {
-        if (other.gameObject.name == "Lightsaber_Blade") {
+    private void OnTriggerStay(Collider other) {
+        if (other.gameObject.name == "Lightsaber_Blade" && WS_Client.blade_av > 10) {
             if (colour == "gold"){
                 if (Generate.myCombo > 0) {
                     Generate.myScore += 40;
