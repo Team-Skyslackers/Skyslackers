@@ -886,7 +886,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf993b0a2df0e44b2ae202a628435443, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target_scene: Game
+  target_scene: Select Music
 --- !u!1 &1973320237
 GameObject:
   m_ObjectHideFlags: 0

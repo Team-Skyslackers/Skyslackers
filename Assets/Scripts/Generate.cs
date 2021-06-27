@@ -9,10 +9,10 @@ public class Generate : MonoBehaviour
 {
     public static int myScore = 0;
     public static int myCombo = 0;
-    public TextAsset songfile;
 
     Song currentSong;
-    public AudioSource musicFile;
+
+    AudioSource musicFile;
     static public float music_current_time, totalMusicLength;
 
     public GameObject beam;
@@ -26,7 +26,9 @@ public class Generate : MonoBehaviour
 
     void Start()
     {
-        currentSong = new Song(songfile, SettingsController.bolt_speed);
+        currentSong = new Song(SongManager.musicScore, SettingsController.bolt_speed);
+        musicFile = GetComponent<AudioSource>();
+        musicFile.clip = SongManager.musicFile;
         musicFile.Play();
         totalMusicLength = musicFile.clip.length;
         InstantiateAllBolts();
