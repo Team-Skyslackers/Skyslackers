@@ -10,14 +10,14 @@ public class Generate : MonoBehaviour
     public static int myScore = 0;
     public static int myCombo = 0;
     public TextAsset songfile;
-    public float distance_from_player = 120;
 
     Song currentSong;
     public AudioSource musicFile;
+    static public float music_current_time;
 
     public GameObject beam;
     public float max_bolt_x = 4, max_bolt_y = 4;
-    public float bolt_x_offset = 0, bolt_y_offset = 3;
+    static public float bolt_x_offset = 0, bolt_y_offset = 5, bolt_z_offset = 20;
     public GameObject combo_num;
     public GameObject combo;
     public GameObject score;
@@ -26,29 +26,16 @@ public class Generate : MonoBehaviour
 
     void Start()
     {
-        currentSong = new Song(songfile, distance_from_player, SettingsController.bolt_speed);
-        // Debug.Log(currentSong.raw_file);
+        currentSong = new Song(songfile, SettingsController.bolt_speed);
         musicFile.Play();
-        //StartTime = Time.time;
-        NextBoltTime = currentSong.GetTime() + SettingsController.music_delay;
-        NextBoltType = currentSong.GetBoltType();
-        currentSong.PrepareNext();
+        InstantiateAllBolts();
     }
 
     void Update()
     {
         // alter game settings
         musicFile.volume = SettingsController.music_volume;
-        // Debug.Log("current time" + musicFile.time);
-        // Debug.Log("vs");
-        // Debug.Log("nextbolttime" + NextBoltTime);
-        if (musicFile.time > NextBoltTime && NextBoltType != "end") {
-            InstantiateAtPosition(NextBoltType.ToCharArray()[0]);
-
-            NextBoltTime = currentSong.GetTime() + SettingsController.music_delay;
-            NextBoltType = currentSong.GetBoltType();
-            currentSong.PrepareNext();
-        }
+        music_current_time = musicFile.time;
         score.GetComponent<Text>().text = " " + myScore + " ";
         if (myCombo > 0) {
             combo.GetComponent<Text>().text = "Combo";
@@ -61,7 +48,7 @@ public class Generate : MonoBehaviour
         
     }
 
-    void InstantiateAtPosition(char pos)
+    void InstantiateAtPosition(char pos, float music_timing)
     {
         // assume 123QEASD cooresponds to 8 possible positions on screen.
         float x, y;
@@ -79,7 +66,20 @@ public class Generate : MonoBehaviour
         else
             y = -max_bolt_y;
 
-        Instantiate(beam, new Vector3(bolt_x_offset + x, bolt_y_offset + y, distance_from_player), Quaternion.identity);
+        GameObject generatedBolt = Instantiate(beam, new Vector3(bolt_x_offset + x, bolt_y_offset + y,
+            bolt_z_offset + music_timing * SettingsController.bolt_speed),
+            Quaternion.identity);
+        generatedBolt.GetComponent<Explosion>().spawn_position = bolt_z_offset + music_timing * SettingsController.bolt_speed;
+    }
+
+    void InstantiateAllBolts()
+    {
+        while (currentSong.NotFinished())
+        {
+            InstantiateAtPosition(currentSong.GetBoltType().ToCharArray()[0],
+                currentSong.GetHitTime());
+            currentSong.PrepareNext();
+        }
     }
 }
 
@@ -89,15 +89,19 @@ public class Song
     string[] each_line;
     int line_count;
     int current_line = 0;
-    public float distance_from_player = 120, bolt_speed = 1;
+    public float bolt_speed;
 
-    public Song(TextAsset songFile, float distanceFromPlayer, float boltSpeed)
+    public Song(TextAsset songFile, float boltSpeed)
     {
         raw_file = songFile.text;
         each_line = raw_file.Split('\n');
         line_count = each_line.Length;
-        distance_from_player = distanceFromPlayer;
         bolt_speed = boltSpeed;
+    }
+
+    public bool NotFinished()
+    {
+        return current_line < line_count;
     }
 
     public string NextLine()
@@ -108,7 +112,7 @@ public class Song
             return "";
     }
 
-    public float GetTime()
+    public float GetHitTime()
     {
         if (current_line < line_count)
         {
@@ -117,28 +121,7 @@ public class Song
             //                   7394761/720000
             // which corresponds to seconds
             float generationTime = float.Parse(timeComponent[0])
-                / float.Parse(timeComponent[1])
-                - distance_from_player / bolt_speed / 60;
-            return generationTime;
-        }
-        else
-            return 10000;
-    }
-
-    public float GetAdjustedTime()
-    {
-        if (current_line < line_count)
-        {
-            string[] timeComponent = each_line[current_line].Split(',')[0].Split(':');
-            // assume time data follow the following convention:
-            //                   03:26:59
-            //         minutes : seconds : per 60 seconds
-            float generationTime = float.Parse(timeComponent[0]) * 60
-                + float.Parse(timeComponent[1])
-                + float.Parse(timeComponent[2]) / 60
-                - distance_from_player / bolt_speed / 60;
-
-            //Debug.Log(generationTime.ToString("N"));
+                / float.Parse(timeComponent[1]);
             return generationTime;
         }
         else

@@ -7,7 +7,7 @@ public class SettingsController : MonoBehaviour
 {
     public static float
         SFX_volume = 0.3f,
-        bolt_speed = 2.5f,  // bolt speed = unit distance travelled per frame
+        bolt_speed = 150f,  // bolt speed = unit distance travelled per frame
         music_delay = 0,
         music_volume = 1;
     public Slider

@@ -26,10 +26,13 @@ public class Explosion : MonoBehaviour {
     public int counter = 0;
     public float prev_time;
     public int miss = 0;
-    // public AudioSource source;
 
 
-    // Use this for initialization
+    static public float perfect_range = 15;
+
+    public float spawn_position;
+
+
     void Start() {
         // source = GetComponent<AudioSource>();
         //calculate pivot distance
@@ -41,37 +44,36 @@ public class Explosion : MonoBehaviour {
     }
     void Update()
     {
-        // Debug.Log(miss);
-        gameObject.transform.Translate(0f,0f,-SettingsController.bolt_speed);
-        if (gameObject.transform.position[2] < 30) {
-            if (gameObject.transform.position[2] > 10) {
-                gameObject.GetComponent<MeshRenderer>().material = goldMaterial;
-                colour = "gold";
+        //gameObject.transform.Translate(0f,0f,-SettingsController.bolt_speed * Time.deltaTime);
+        gameObject.transform.position = new Vector3(gameObject.transform.position[0], gameObject.transform.position[1],
+            spawn_position - Generate.music_current_time * SettingsController.bolt_speed);
+        //gameObject.transform.position[2] = Generate.distance_from_player -
+        //    (Generate.music_current_time - generate_time) * SettingsController.bolt_speed;
+
+        if (gameObject.transform.position[2] > perfect_range + Generate.bolt_z_offset)
+        {
+            gameObject.GetComponent<MeshRenderer>().material = greenMaterial;
+            colour = "green";
+        } else if (gameObject.transform.position[2] <= perfect_range + Generate.bolt_z_offset &&
+            gameObject.transform.position[2] > -perfect_range + Generate.bolt_z_offset)
+        {
+            gameObject.GetComponent<MeshRenderer>().material = goldMaterial;
+            colour = "gold";
+        } else
+        {
+            gameObject.GetComponent<MeshRenderer>().material = redMaterial;
+            colour = "red";
+            if (miss == 0)
+            {
+                miss = 1;
+                Generate.myCombo = 0;
+                Vector3 ex_pt = gameObject.transform.position;
+                Instantiate(text_miss, new Vector3(ex_pt[0], ex_pt[1], ex_pt[2]), Quaternion.identity);
             }
-            else {
-                if (gameObject.transform.position[2] > 0) {
-                    gameObject.GetComponent<MeshRenderer>().material = greenMaterial;
-                    colour = "green";
-                }
-                else {
-                    gameObject.GetComponent<MeshRenderer>().material = redMaterial;
-                    colour = "red";
-                    if (miss == 0){
-                        miss = 1; 
-                        Generate.myCombo = 0;
-                        Vector3 ex_pt = gameObject.transform.position;
-                        Instantiate(text_miss, new Vector3(ex_pt[0], ex_pt[1], ex_pt[2]), Quaternion.identity);
-                        // Debug.Log(gameObject);
-                    }
-                }
-                
-            }
-                
-                //used to be 2~40
         }
 
-
-        if (gameObject.transform.position[2]<-100){
+        if (gameObject.transform.position[2] < -100)
+        {
             Destroy(this.gameObject);
         }
     }
@@ -82,7 +84,7 @@ public class Explosion : MonoBehaviour {
     // }
 
     private void OnTriggerStay(Collider other) {
-        if (other.gameObject.name == "Lightsaber_Blade" && WS_Client.blade_av > 10) {
+        if (other.gameObject.name == "Lightsaber_Blade" && WS_Client.blade_av > 10 && gameObject.transform.position[2] < 3 * perfect_range + Generate.bolt_z_offset) {
             if (colour == "gold"){
                 if (Generate.myCombo > 0) {
                     Generate.myScore += 40;
@@ -105,16 +107,16 @@ public class Explosion : MonoBehaviour {
             explode();
             prev_time = Time.time;
             
-            // Debug.Log(Time.time);
+            Debug.Log(gameObject.transform.position[2].ToString("N"));
             // while (Time.time - prev_time < 1){
             //     Debug.Log(Time.time);
             // }
             // for (int i = 0; i < 125; i++){
             //     part = GameObject.Find("Cube");
-                
+
             //     part.SetActive(false);
             // }
-        
+
         }
         
 

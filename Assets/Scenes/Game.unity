@@ -6906,13 +6906,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   songfile: {fileID: 4900000, guid: 73d698fcdbc124231b56971a70511412, type: 3}
-  distance_from_player: 120
   musicFile: {fileID: 963194231}
   beam: {fileID: 5692617128759409672, guid: 2a59f02df4a6f4101a53a45b4549bcc3, type: 3}
   max_bolt_x: 12
   max_bolt_y: 10
-  bolt_x_offset: 0
-  bolt_y_offset: 5
   combo_num: {fileID: 1101995245}
   combo: {fileID: 1092407601}
   score: {fileID: 31823903}
@@ -7312,6 +7309,26 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: c9e6294c9d11cb8d11006bf944295342, type: 2}
+    - target: {fileID: 249185188451111170, guid: de9ca8ce5e5a84bf79c05ae25ae57f00, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 249185188451111170, guid: de9ca8ce5e5a84bf79c05ae25ae57f00, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 249185188451111170, guid: de9ca8ce5e5a84bf79c05ae25ae57f00, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 249185188451111170, guid: de9ca8ce5e5a84bf79c05ae25ae57f00, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 249185188451111170, guid: de9ca8ce5e5a84bf79c05ae25ae57f00, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
     - target: {fileID: 492440804577196729, guid: de9ca8ce5e5a84bf79c05ae25ae57f00, type: 3}
       propertyPath: m_Name
       value: Lightsaber_Hilt
@@ -7335,6 +7352,26 @@ PrefabInstance:
     - target: {fileID: 4930808673151018533, guid: de9ca8ce5e5a84bf79c05ae25ae57f00, type: 3}
       propertyPath: m_LocalScale.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4930808673151018533, guid: de9ca8ce5e5a84bf79c05ae25ae57f00, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4930808673151018533, guid: de9ca8ce5e5a84bf79c05ae25ae57f00, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4930808673151018533, guid: de9ca8ce5e5a84bf79c05ae25ae57f00, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4930808673151018533, guid: de9ca8ce5e5a84bf79c05ae25ae57f00, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4930808673151018533, guid: de9ca8ce5e5a84bf79c05ae25ae57f00, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: 5837523472550796488, guid: de9ca8ce5e5a84bf79c05ae25ae57f00, type: 3}
       propertyPath: m_Name
@@ -7763,9 +7800,9 @@ CapsuleCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 2.35
-  m_Height: 77.84
+  m_Height: 149.7
   m_Direction: 2
-  m_Center: {x: 0, y: 0, z: 28.459694}
+  m_Center: {x: 0, y: 0, z: 69.1}
 --- !u!1 &1315033919
 GameObject:
   m_ObjectHideFlags: 0
