@@ -13,7 +13,7 @@ public class Generate : MonoBehaviour
 
     Song currentSong;
     public AudioSource musicFile;
-    static public float music_current_time;
+    static public float music_current_time, totalMusicLength;
 
     public GameObject beam;
     public float max_bolt_x = 4, max_bolt_y = 4;
@@ -28,6 +28,7 @@ public class Generate : MonoBehaviour
     {
         currentSong = new Song(songfile, SettingsController.bolt_speed);
         musicFile.Play();
+        totalMusicLength = musicFile.clip.length;
         InstantiateAllBolts();
     }
 
