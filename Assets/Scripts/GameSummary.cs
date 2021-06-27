@@ -9,11 +9,14 @@ public class GameSummary : MonoBehaviour
     public Text totalScore, perfectText, goodText, missedText;
     public GameObject SummaryCanvas;
 
+    static public bool showingSummary = false;
+
     void Update()
     {
         //Debug.Log(Generate.music_current_time.ToString("N") + " / " + Generate.totalMusicLength.ToString("N"));
         if (Generate.music_current_time >= Generate.totalMusicLength - 1)
         {
+            showingSummary = true;
             totalScore.text = Generate.myScore.ToString();
             perfectText.text = perfect.ToString();
             goodText.text = good.ToString();

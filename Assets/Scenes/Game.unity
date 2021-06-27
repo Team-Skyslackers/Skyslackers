@@ -8718,7 +8718,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1385542384
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8803,7 +8803,6 @@ GameObject:
   - component: {fileID: 1406410533}
   - component: {fileID: 1406410535}
   - component: {fileID: 1406410534}
-  - component: {fileID: 1406410536}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -8873,24 +8872,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1406410532}
   m_CullTransparentMesh: 1
---- !u!114 &1406410536
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1406410532}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fdbce5a40f1264d3f8c1274d817f5af4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  music_volume_slider: {fileID: 516704992}
-  SFX_slider: {fileID: 2045197324}
-  music_delay_slider: {fileID: 601932946}
-  music_volume_display: {fileID: 823630924}
-  SFX_display: {fileID: 240132303}
-  music_delay_display: {fileID: 400193900}
 --- !u!1 &1489864329
 GameObject:
   m_ObjectHideFlags: 0
@@ -9385,6 +9366,7 @@ GameObject:
   - component: {fileID: 1716428870}
   - component: {fileID: 1716428869}
   - component: {fileID: 1716428868}
+  - component: {fileID: 1716428872}
   m_Layer: 5
   m_Name: GameUI
   m_TagString: Untagged
@@ -9475,6 +9457,26 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1716428872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1716428867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdbce5a40f1264d3f8c1274d817f5af4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panel: {fileID: 1406410532}
+  music: {fileID: 963194231}
+  music_volume_slider: {fileID: 516704992}
+  SFX_slider: {fileID: 2045197324}
+  music_delay_slider: {fileID: 601932946}
+  music_volume_display: {fileID: 823630924}
+  SFX_display: {fileID: 240132303}
+  music_delay_display: {fileID: 400193900}
 --- !u!1 &1725549641
 GameObject:
   m_ObjectHideFlags: 0
@@ -10345,7 +10347,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2122717463
 RectTransform:
   m_ObjectHideFlags: 0
