@@ -6,7 +6,11 @@ Level of Achievement: Apollo
 **This is the repository for the game. 
 For repository of our server, please go to https://github.com/yuejunfeng0909/Skyslackers_server**
 
+
 ## Setup procedure for users
+
+**Download the zip file from "releases" in this repository. Two platforms are supported: MacOS and Windows. MacOS and Windows versions support both IOS and Android devices. **
+
 **Mac**
 1. Unzip the compressed zip file. Open the folder.
 2. Right-click on "skyslackers_server_mac" and select "Open". First-time users may need to go to system preferences - security & privacy - general to allow the computer to open the executable.
