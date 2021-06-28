@@ -11,6 +11,11 @@ public class GameSummary : MonoBehaviour
 
     static public bool showingSummary = false;
 
+    private void Start()
+    {
+        showingSummary = false;
+    }
+
     void Update()
     {
         //Debug.Log(Generate.music_current_time.ToString("N") + " / " + Generate.totalMusicLength.ToString("N"));
