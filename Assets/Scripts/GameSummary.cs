@@ -21,6 +21,7 @@ public class GameSummary : MonoBehaviour
         //Debug.Log(Generate.music_current_time.ToString("N") + " / " + Generate.totalMusicLength.ToString("N"));
         if (Generate.music_current_time >= Generate.totalMusicLength - 1)
         {
+            Cursor.visible = true;
             showingSummary = true;
             totalScore.text = Generate.myScore.ToString();
             perfectText.text = perfect.ToString();
