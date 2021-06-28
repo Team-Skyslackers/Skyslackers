@@ -3,6 +3,8 @@ Team: the Skyslackers
 
 Level of Achievement: Apollo
 
+**This is the repository for the game. 
+For repository of our server, please go to https://github.com/yuejunfeng0909/Skyslackers_server**
 
 ## Setup procedure for users
 **Mac**
