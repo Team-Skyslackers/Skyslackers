@@ -27,6 +27,7 @@ public class InGameSettings : MonoBehaviour
         music_volume_slider.onValueChanged.AddListener((v) => SettingsController.music_volume = v / 100);
         SFX_slider.onValueChanged.AddListener((v) => SettingsController.SFX_volume = v / 100);
         music_delay_slider.onValueChanged.AddListener((v) => SettingsController.music_delay = v);
+        Cursor.visible = false;
     }
 
     // Update is called once per frame
@@ -38,18 +39,15 @@ public class InGameSettings : MonoBehaviour
             {
                 panel.SetActive(false);
                 music.UnPause();
+                Cursor.visible = false;
             }
             else
             {
                 panel.SetActive(true);
                 music.Pause();
+                Cursor.visible = true;
             }
         }
-
-        Cursor.visible = (panel.activeSelf && !GameSummary.showingSummary) ? true : false;
-
-        
-        
         music_volume_display.text = ((int)music_volume_slider.value).ToString();
         SFX_display.text = ((int)SFX_slider.value).ToString();
         music_delay_display.text = ((int)music_delay_slider.value).ToString();
