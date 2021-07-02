@@ -1,13 +1,16 @@
 # Skyslackers
+
+![LOGO](Assets/Images/Start%20Page/Title.png)
+
 Team: the Skyslackers
 
-Level of Achievement: Apollo
+Proposed Level of Achievement: Apollo 11
 
 **This is the repository for the game. 
-For repository of our server, please go to https://github.com/yuejunfeng0909/Skyslackers_server**
+For the repository of the server, please go to [Skyslackers_Server](https://github.com/yuejunfeng0909/Skyslackers_server)**
 
 
-## Setup procedure for users
+## Install
 
 **Download the zip file from "releases" in this repository. Two platforms are supported: MacOS and Windows. MacOS and Windows versions support both IOS and Android devices.**
 
@@ -54,7 +57,7 @@ We want to develop a motion-sensing music video game. In the game, players can u
 7. The background music and the pattern of incoming blaster bolts is customisable. Players can choose to play their favourite songs and design their own blaster bolt patterns for greater challenge and fun.
 8. Two-player mode for more interesting gaming experience.
 9. An online database that stores all the maps available (a map includes the song itself and specifically designed blaster bolt pattern) with different levels of difficulty. Players can choose maps they like to play with.
-10. A complementary program that helps players to make their own maps.. Players can either manually design the blaster bolt pattern or let the program randomly generate patterns. 
+10. A complementary program that helps players to make their own games. Players can either manually design the blaster bolt pattern or let the program randomly generate patterns. 
 11. Easy set-up.
 
 
@@ -69,8 +72,8 @@ We want to develop a motion-sensing music video game. In the game, players can u
 3. Create map builder and find songs, write script for spawning bolts, testing and debugging - week7
 
 **Milestone 3**
-1. Construct database using mySQL (tentative) and try to set up register/login for users - week8
-2. Add new features: uploading/downloading maps; add map builder for users - week9
+1. Construct database using mySQL (tentative) and try to set up register/login for users to share statistics and checkout leadeboard - week8
+2. Add new features: uploading/downloading community-made musics; add game maker for users to make their own games and share with others - week9
 3. Add two-player mode - week10
 4. Add better graphics + sound effects - week11
 
@@ -98,7 +101,7 @@ We want to develop a motion-sensing music video game. In the game, players can u
 8. Added total score and Combo display
 9. Added summary page displaying total scores after the game
 10. Easy set-up: bundled all javascript files and packages into executables for both Mac OS and Windows OS. Added QR code generating function for easy connection from the phone to the computer. Automatically open the game after connecting the phone to the computer.
-11. Wider compatibility: Phone: fully compatible with IOS and Android; Computer: compatible with Mac (only x86 architecture) and Windows (only x86 architecture). M1 Mac or ARM-based Windows PC are sadly not supported.
+11. Wider compatibility: *Phone*: compatible with IOS and Android; *Computer*: compatible with Mac (only x86) and Windows (only x86). M1 Mac or ARM-based Windows PC are not yet supported.
 
 
 ## Technology used (for milestone 2)
