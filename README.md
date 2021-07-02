@@ -12,7 +12,7 @@ For the repository of the server, please go to [Skyslackers_Server](https://gith
 
 ## Install
 
-**Download the zip file from "releases" in this repository. Two platforms are supported: MacOS and Windows. MacOS and Windows versions support both IOS and Android devices.**
+**Download the zip file from "releases" in this repository. Both MacOS and Windows are supported. Both platforms support using either iOS or Android device as controller.**
 
 **Mac**
 1. Unzip the compressed zip file. Open the folder.
