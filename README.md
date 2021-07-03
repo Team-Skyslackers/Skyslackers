@@ -56,17 +56,17 @@ We want to develop a motion-sensing music video game. In the game, players can u
 	
 	
 ## Proposed features
-1. The position and the movement of the virtual lightsaber is synchronized with the user’s phone (both IOS and Android supported).
-2. When a new round starts, there will be blaster bolts coming towards the player, and the player can wave his/her phone to control the virtual lightsaber blade to           deflect. If successfully deflected, scores will be awarded. 
-3. The incoming blaster bolts will change colour when they come near to the player, green - god - green - red. When the player deflects the bolt when it is green, he/she only gets “good” deflection. When he/she deflects the bolt when it is gold, he/she gets “perfect”deflection and higher scores will be awarded.
-4. When the player achieves “perfect” deflections consecutively, he/she gets “Combos” and additional scores are awarded.
-5·. There are real-time updates of scores and “Combos” during the game.
-6. After each round of the game, the total score will be displayed and there is a leaderboard showing the global rank of the player.
-7. The background music and the pattern of incoming blaster bolts is customisable. Players can choose to play their favourite songs and design their own blaster bolt patterns for greater challenge and fun.
+1. :white_check_mark: The position and the movement of the virtual lightsaber is synchronized with the user’s phone (both IOS and Android supported).
+2. :white_check_mark: When a new round starts, there will be blaster bolts coming towards the player, and the player can wave his/her phone to control the virtual lightsaber blade to           deflect. If successfully deflected, scores will be awarded. 
+3. :white_check_mark: The incoming blaster bolts will change colour when they come near to the player, green - god - green - red. When the player deflects the bolt when it is green, he/she only gets “good” deflection. When he/she deflects the bolt when it is gold, he/she gets “perfect”deflection and higher scores will be awarded.
+4. :white_check_mark: When the player achieves “perfect” deflections consecutively, he/she gets “Combos” and additional scores are awarded.
+5. :white_check_mark: There are real-time updates of scores and “Combos” during the game.
+6. :white_check_mark: After each round of the game, the total score will be displayed and there is a leaderboard showing the global rank of the player.
+7. :white_check_mark: The background music and the pattern of incoming blaster bolts is customisable. Players can choose to play their favourite songs and design their own blaster bolt patterns for greater challenge and fun.
 8. Two-player mode for more interesting gaming experience.
 9. An online database that stores all the maps available (a map includes the song itself and specifically designed blaster bolt pattern) with different levels of difficulty. Players can choose maps they like to play with.
 10. A complementary program that helps players to make their own games. Players can either manually design the blaster bolt pattern or let the program randomly generate patterns. 
-11. Easy set-up.
+11. :white_check_mark: Easy set-up.
 
 
 ## Plan (timeline)
