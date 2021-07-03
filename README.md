@@ -66,7 +66,7 @@ We want to develop a motion-sensing music video game. In the game, players can u
 8. Two-player mode for more interesting gaming experience.
 9. An online database that stores all the maps available (a map includes the song itself and specifically designed blaster bolt pattern) with different levels of difficulty. Players can choose maps they like to play with.
 10. A complementary program that helps players to make their own games. Players can either manually design the blaster bolt pattern or let the program randomly generate patterns. 
-11. :white_check_mark: Easy set-up.
+11. Easy set-up on all major platforms(Computer: Windows and MacOS, both x86 and ARM; Mobile: Android and iOS).
 
 
 ## Plan (timeline)
