@@ -12,7 +12,15 @@ For the repository of the server, please go to [Skyslackers_Server](https://gith
 
 ## Install
 
-**Download the zip file from "releases" in this repository. Both MacOS and Windows are supported. Both platforms support using either iOS or Android device as controller.**
+**Download the zip file from [releases](https://github.com/yuejunfeng0909/Skyslackers/releases).**
+
+**Computer OS & smartphone requirement**
+
+|   		|Android (Chrome)      	|iOS (Safari & Chrome)   |
+|---		|:--:	           	|:--:	      		|
+|MacOS (x86)	|:heavy_check_mark:	|:heavy_check_mark:	|
+|Windows	|:heavy_check_mark:	|:heavy_check_mark:	|
+|MacOS (ARM)	|:x:			|:x:			|
 
 **Mac**
 1. Unzip the compressed zip file. Open the folder.
