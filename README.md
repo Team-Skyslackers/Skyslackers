@@ -56,6 +56,7 @@ We want to develop a motion-sensing music video game. In the game, players can u
 	
 	
 ## Proposed features
+![flowchart](Flowchart.jpeg)
 1. :white_check_mark: The position and the movement of the virtual lightsaber is synchronized with the user’s phone (both IOS and Android supported).
 2. :white_check_mark: When a new round starts, there will be blaster bolts coming towards the player, and the player can wave his/her phone to control the virtual lightsaber blade to           deflect. If successfully deflected, scores will be awarded. 
 3. :white_check_mark: The incoming blaster bolts will change colour when they come near to the player, green - god - green - red. When the player deflects the bolt when it is green, he/she only gets “good” deflection. When he/she deflects the bolt when it is gold, he/she gets “perfect”deflection and higher scores will be awarded.
