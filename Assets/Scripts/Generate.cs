@@ -12,7 +12,7 @@ public class Generate : MonoBehaviour
 
     Song currentSong;
 
-    AudioSource musicFile;
+    static public AudioSource musicFile;
     static public float music_current_time, totalMusicLength;
 
     public GameObject beam;

@@ -11,6 +11,6 @@ public class displayUID : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        UIDText.text = WS_manager.GetComponent<WS_Client>().UID;
+        UIDText.text = WS_Client.UID;
     }
 }

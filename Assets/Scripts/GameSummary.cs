@@ -18,15 +18,17 @@ public class GameSummary : MonoBehaviour
     public struct GameResults
     {
         public string uid;
+        public string music;
+        public int score;
         public int perfect;
         public int good;
         public int missed;
-        public int total;
         public string dateAndTimeUTC;
-        public GameResults(int _total, int _perfect, int _good, int _missed)
+        public GameResults(int _score, int _perfect, int _good, int _missed)
         {
-            uid = "placeholder";
-            total = _total;
+            uid = WS_Client.UID;
+            music = SongManager.musicFile.name;
+            score = _score;
             perfect = _perfect;
             good = _good;
             missed = _missed;
@@ -39,6 +41,12 @@ public class GameSummary : MonoBehaviour
     private void Start()
     {
         showingSummary = false;
+        perfect = 0;
+        good = 0;
+        missed = 0;
+
+        // test code
+        Generate.musicFile.time = Generate.musicFile.clip.length-10;
     }
 
     void Update()

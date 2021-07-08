@@ -9575,7 +9575,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lightsaber: {fileID: 652960728}
-  UID: 
 --- !u!4 &1743109833
 Transform:
   m_ObjectHideFlags: 0
@@ -9723,7 +9722,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1843581813
 RectTransform:
   m_ObjectHideFlags: 0

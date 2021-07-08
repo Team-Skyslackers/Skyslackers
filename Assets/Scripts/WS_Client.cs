@@ -11,7 +11,7 @@ public class WS_Client : MonoBehaviour
     private float raw_z = 0;
     private float pos_x = 0, pos_y = 0;
     public WebSocket ws;
-    public string UID;
+    static public string UID;
 
     // calculate max angular velocity over past 10 frames
     float[] past_av = new float[10] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
