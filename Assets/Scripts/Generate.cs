@@ -26,7 +26,7 @@ public class Generate : MonoBehaviour
 
     void Start()
     {
-        currentSong = new Song(SongManager.musicScore, SettingsController.bolt_speed);
+        currentSong = new Song(SongManager.musicMap, SettingsController.bolt_speed);
         musicFile = GetComponent<AudioSource>();
         musicFile.clip = SongManager.musicFile;
         musicFile.Play();
