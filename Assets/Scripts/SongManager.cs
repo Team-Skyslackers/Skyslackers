@@ -76,6 +76,19 @@ public class SongManager : MonoBehaviour
             Debug.Log(filename + " successfully downloaded and saved to " + path);
     }
 
+    IEnumerator LoadGameFiles(string pathToMusic, string pathToMap)
+    {
+        Debug.Log("loading music & map");
+        while (!System.IO.File.Exists(Application.persistentDataPath + pathToMusic) ||
+            !System.IO.File.Exists(Application.persistentDataPath + pathToMap))
+        {
+            yield return null;
+        }
+        musicFile = Resources.Load<AudioClip>(Application.persistentDataPath + pathToMusic);
+        musicMap = Resources.Load<TextAsset>(Application.persistentDataPath + pathToMap);
+        SceneManager.LoadScene("Game");
+    }
+
 
     public void setSong()
     {
