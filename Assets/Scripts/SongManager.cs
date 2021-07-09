@@ -102,17 +102,16 @@ public class SongManager : MonoBehaviour
             string songCsvURL = "https://firebasestorage.googleapis.com/v0/b/test-7f7c0.appspot.com/o/musicFile%2Fsong1.csv?alt=media&token=90e8c03e-e314-4727-ab27-ecefad99cfac";
             StartCoroutine(DownloadFile(songCsvURL, "song1.csv", "/Music/"));
 
-            musicFile = Resources.Load<AudioClip>(Application.persistentDataPath + "/Music/song1.mp3");
-            musicMap = Resources.Load<TextAsset>(Application.persistentDataPath + "/Music/song1.csv");
+            StartCoroutine(LoadGameFiles("/Music/song1.mp3", "/Music/song1.csv"));
 
-            if (musicMap != null || musicFile != null)
-            {
-                SceneManager.LoadScene("Game");
-            }
-            else
-            {
-                Debug.Log("Music and/or map file not found");
-            }
+            //if (musicMap != null || musicFile != null)
+            //{
+            //    SceneManager.LoadScene("Game");
+            //}
+            //else
+            //{
+            //    Debug.Log("Music and/or map file not found");
+            //}
         }
         else
         {
