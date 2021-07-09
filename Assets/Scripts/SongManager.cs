@@ -85,12 +85,12 @@ public class SongManager : MonoBehaviour
             //StartCoroutine(DownloadFile("https://en.images.guru/images/2021/07/08/38nps.png", "38nps.png", "/Assets/"));
 
             string songURL = "https://firebasestorage.googleapis.com/v0/b/test-7f7c0.appspot.com/o/musicFile%2Fsong1.mp3?alt=media&token=f1f5732c-8309-4209-8763-988f2003cb34";
-            StartCoroutine(DownloadFile(songURL, "song1.mp3", "/Assets/Music/"));
+            StartCoroutine(DownloadFile(songURL, "song1.mp3", "/Music/"));
             string songCsvURL = "https://firebasestorage.googleapis.com/v0/b/test-7f7c0.appspot.com/o/musicFile%2Fsong1.csv?alt=media&token=90e8c03e-e314-4727-ab27-ecefad99cfac";
-            StartCoroutine(DownloadFile(songCsvURL, "song1.csv", "/Assets/Music/"));
+            StartCoroutine(DownloadFile(songCsvURL, "song1.csv", "/Music/"));
 
-            musicFile = Resources.Load<AudioClip>("Assets/Music/song1.mp3");
-            musicMap = Resources.Load<TextAsset>("Assets/Music/song1.csv");
+            musicFile = Resources.Load<AudioClip>(Application.persistentDataPath + "/Music/song1.mp3");
+            musicMap = Resources.Load<TextAsset>(Application.persistentDataPath + "/Music/song1.csv");
 
             if (musicMap != null || musicFile != null)
             {
