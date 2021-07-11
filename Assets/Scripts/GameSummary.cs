@@ -46,7 +46,7 @@ public class GameSummary : MonoBehaviour
         missed = 0;
 
         // test code
-        Generate.musicFile.time = Generate.musicFile.clip.length-10;
+        // Generate.musicFile.time = Generate.musicFile.clip.length-10;
     }
 
     void Update()
