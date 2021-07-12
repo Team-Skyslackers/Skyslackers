@@ -87,7 +87,8 @@ public class SongManager : MonoBehaviour
         }
         using (UnityWebRequest uwr = UnityWebRequestMultimedia.GetAudioClip("https://firebasestorage.googleapis.com/v0/b/test-7f7c0.appspot.com/o/musicFile%2Fsong1.mp3?alt=media&token=f1f5732c-8309-4209-8763-988f2003cb34", AudioType.MPEG)) {
             yield return uwr.SendWebRequest();
-            if (uwr.isNetworkError || uwr.isHttpError) {
+            if (uwr.result == UnityWebRequest.Result.ConnectionError ||
+                uwr.result == UnityWebRequest.Result.ProtocolError) {
                 Debug.Log(uwr.error);
             }
             else {
@@ -107,7 +108,8 @@ public class SongManager : MonoBehaviour
         }
         using (UnityWebRequest uwr = UnityWebRequest.Get("File://"+Application.persistentDataPath + pathToMap)) {
             yield return uwr.SendWebRequest();
-            if (uwr.isNetworkError || uwr.isHttpError) {
+            if (uwr.result == UnityWebRequest.Result.ConnectionError ||
+                uwr.result == UnityWebRequest.Result.ProtocolError) {
                 Debug.Log(uwr.error);
             }
             else {
