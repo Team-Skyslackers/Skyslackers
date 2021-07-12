@@ -10,8 +10,8 @@ public class WS_Client : MonoBehaviour
     private float raw_x = 0, raw_y = 0;
     private float raw_z = 0;
     private float pos_x = 0, pos_y = 0;
-    WebSocket ws;
-
+    public WebSocket ws;
+    static public string UID;
 
     // calculate max angular velocity over past 10 frames
     float[] past_av = new float[10] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
@@ -21,19 +21,26 @@ public class WS_Client : MonoBehaviour
     static public float blade_av; // take max over past 10 frame
 
 
-    private void Start()
+    void Start()
     {
         ws = new WebSocket("ws://localhost:8080");
-        ws.Connect();
-        ws.OnMessage += (sender, e) =>
+        ws.ConnectAsync();
+        ws.OnMessage += (sender, message) =>
         {
-            //Debug.Log(e.Data);
-            raw_x = float.Parse(e.Data.Split(' ')[1]);
-            raw_y = float.Parse(e.Data.Split(' ')[0]);
-            raw_z = float.Parse(e.Data.Split(' ')[2]);
-            y = -raw_y;
-            x = 90-raw_x;
-            //z = -float.Parse(e.Data.Split(' ')[2]);
+            Debug.Log("data received: "+message.Data);
+            if(message.Data.Substring(0, 4) == "gyro")
+            {
+                string gyroInfo = message.Data.Substring(5);
+                raw_x = float.Parse(gyroInfo.Split(' ')[1]);
+                raw_y = float.Parse(gyroInfo.Split(' ')[0]);
+                raw_z = float.Parse(gyroInfo.Split(' ')[2]);
+                y = -raw_y;
+                x = 90 - raw_x;
+                //z = -float.Parse(e.Data.Split(' ')[2]);
+            }else if (message.Data.Substring(0, 3) == "UID")
+            {
+                UID = message.Data.Substring(4);
+            }
         };
     }
     void Update()

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "531047203297",
+    "firebase_url": "https://test-7f7c0-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "test-7f7c0",
+    "storage_bucket": "test-7f7c0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:531047203297:android:ec7642db71f8a23cbb12a0",
+        "android_client_info": {
+          "package_name": "com.TeamSkyslackers.Skyslackers"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "531047203297-g8emal92oqqg3n0gqo0624oqeklsim92.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDBh8LLvLDHD_DiPZK5gQzD1WkiHZci628"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "531047203297-g8emal92oqqg3n0gqo0624oqeklsim92.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "531047203297-1re3rd6ui95e8nb4d12r7g50smrj5uav.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.Skyslackers.Test"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
