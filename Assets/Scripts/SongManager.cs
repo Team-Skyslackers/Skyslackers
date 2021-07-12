@@ -71,7 +71,7 @@ public class SongManager : MonoBehaviour
         
         if (ms == null || ac == null)
         {
-            string songURL = "https://firebasestorage.googleapis.com/v0/b/test-7f7c0.appspot.com/o/musicFile%2Fsong1.wav?alt=media&token=c18117cc-dcac-41a9-b66a-35eb201d9bd4";
+            string songURL = "https://firebasestorage.googleapis.com/v0/b/test-7f7c0.appspot.com/o/musicFile%2Fsong1.mp3?alt=media&token=f1f5732c-8309-4209-8763-988f2003cb34";
             string songCsvURL = "https://firebasestorage.googleapis.com/v0/b/test-7f7c0.appspot.com/o/musicFile%2Fsong1.csv?alt=media&token=90e8c03e-e314-4727-ab27-ecefad99cfac";
 
             StartCoroutine(LoadGameFiles(songURL, songCsvURL));
