@@ -4,14 +4,13 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Networking;
-using Firebase;
-using Firebase.Extensions;
-using Firebase.Storage;
+using WebSocketSharp;
 
 public class SongManager : MonoBehaviour
 {
     static public TextAsset musicMap;
     static public AudioClip musicFile;
+    WebSocket ws;
 
 
     public TextAsset ms;
@@ -21,6 +20,18 @@ public class SongManager : MonoBehaviour
     {
         musicMap = null;
         musicFile = null;
+        ws = new WebSocket("ws://localhost:8080");
+        ws.ConnectAsync();
+        ws.OnMessage += (sender, message) =>
+        {
+            if (message.Data.Substring(0, 13) == "musicselected")
+            {
+                string URLinfo = message.Data.Substring(15);
+                string mp3URL = URLinfo.Split(' ')[0];
+                string csvURL = URLinfo.Split(' ')[1];
+                StartCoroutine(LoadGameFiles(mp3URL, csvURL));
+            }
+        };
     }
 
     IEnumerator LoadGameFiles(string pathToMusic, string pathToMap)
@@ -63,35 +74,14 @@ public class SongManager : MonoBehaviour
         {
             yield return null;
         }
+        ws.Close();
         SceneManager.LoadScene("Game");
     }
 
-    public void setSong()
+    public void setSong(string musicName)
     {
-        
-        if (ms == null || ac == null)
-        {
-            string songURL = "https://firebasestorage.googleapis.com/v0/b/test-7f7c0.appspot.com/o/musicFile%2Fsong1.mp3?alt=media&token=f1f5732c-8309-4209-8763-988f2003cb34";
-            string songCsvURL = "https://firebasestorage.googleapis.com/v0/b/test-7f7c0.appspot.com/o/musicFile%2Fsong1.csv?alt=media&token=90e8c03e-e314-4727-ab27-ecefad99cfac";
-
-            StartCoroutine(LoadGameFiles(songURL, songCsvURL));
-
-            //if (musicMap != null && musicFile != null)
-            //{
-            //   SceneManager.LoadScene("Game");
-            //}
-            //else
-            //{
-            //   Debug.Log("Music and/or map file not found");
-            //}
-        }
-        else
-        {
-            musicMap = ms;
-            musicFile = ac;
-            SceneManager.LoadScene("Game");
-        }
+        musicMap = Resources.Load<TextAsset>("Music/" + musicName + "csv");
+        musicFile = Resources.Load<AudioClip>("Music/" + musicName);
+        SceneManager.LoadScene("Game");
     }
-
-    
 }
