@@ -16,17 +16,20 @@ public class Generate : MonoBehaviour
     static public float music_current_time, totalMusicLength;
 
     public GameObject beam;
-    public float max_bolt_x = 4, max_bolt_y = 4;
+    public float max_bolt_x, max_bolt_y;
+    public float origin_x;
     static public float bolt_x_offset = 0, bolt_y_offset = 5, bolt_z_offset = 20;
     public GameObject combo_num;
     public GameObject combo;
     public GameObject score;
+    public int layer;
     float StartTime, NextBoltTime;
     string NextBoltType;
 
     void Start()
     {
         currentSong = new Song(SongManager.musicMap, SettingsController.bolt_speed);
+        Debug.Log(SongManager.musicMap);
         musicFile = GetComponent<AudioSource>();
         musicFile.clip = SongManager.musicFile;
         musicFile.Play();
@@ -56,11 +59,11 @@ public class Generate : MonoBehaviour
         // assume 123QEASD cooresponds to 8 possible positions on screen.
         float x, y;
         if (pos == 'Q' || pos == 'A' || pos == 'Z')
-            x = -max_bolt_x;
+            x = -max_bolt_x+origin_x;
         else if (pos == 'W' || pos == 'X')
-            x = 0;
+            x = origin_x;
         else
-            x = max_bolt_x;
+            x = max_bolt_x+origin_x;
 
         if (pos == 'Q' || pos == 'W' || pos == 'E')
             y = max_bolt_y;
@@ -72,6 +75,7 @@ public class Generate : MonoBehaviour
         GameObject generatedBolt = Instantiate(beam, new Vector3(bolt_x_offset + x, bolt_y_offset + y,
             bolt_z_offset + music_timing * SettingsController.bolt_speed),
             Quaternion.identity);
+        generatedBolt.layer = layer;
         generatedBolt.GetComponent<Explosion>().spawn_position = bolt_z_offset + music_timing * SettingsController.bolt_speed;
     }
 

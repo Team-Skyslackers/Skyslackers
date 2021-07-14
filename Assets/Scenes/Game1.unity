@@ -5391,6 +5391,10 @@ PrefabInstance:
       value: Corridor
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 894a14341bcec4529b6673598a653017, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 894a14341bcec4529b6673598a653017, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -5530,7 +5534,7 @@ GameObject:
   - component: {fileID: 204672508}
   - component: {fileID: 204672507}
   - component: {fileID: 204672506}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Corridor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6955,7 +6959,7 @@ GameObject:
   m_Component:
   - component: {fileID: 849596091}
   - component: {fileID: 849596090}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Spot Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7032,7 +7036,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 849596089}
   m_LocalRotation: {x: -0.055472888, y: 0, z: 0, w: 0.99846023}
-  m_LocalPosition: {x: -1.0146182, y: 0.9745364, z: -33.32919}
+  m_LocalPosition: {x: 1199, y: 0.9745364, z: -33.32919}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -7392,9 +7396,9 @@ Camera:
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
+    x: 0.5
     y: 0
-    width: 1
+    width: 0.5
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
@@ -7424,7 +7428,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 7.6, z: -22.8}
+  m_LocalPosition: {x: 1200, y: 7.6, z: -22.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -7505,11 +7509,11 @@ MonoBehaviour:
   beam: {fileID: 5692617128759409672, guid: 2a59f02df4a6f4101a53a45b4549bcc3, type: 3}
   max_bolt_x: 12
   max_bolt_y: 10
-  origin_x: 0
+  origin_x: 1200
   combo_num: {fileID: 1101995245}
   combo: {fileID: 1092407601}
   score: {fileID: 31823903}
-  layer: 0
+  layer: 7
 --- !u!82 &963194231
 AudioSource:
   m_ObjectHideFlags: 0
@@ -8032,7 +8036,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: de9ca8ce5e5a84bf79c05ae25ae57f00, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 1200
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: de9ca8ce5e5a84bf79c05ae25ae57f00, type: 3}
       propertyPath: m_LocalPosition.y
@@ -8107,6 +8111,10 @@ PrefabInstance:
       value: lightsabreiv-only
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: de9ca8ce5e5a84bf79c05ae25ae57f00, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: de9ca8ce5e5a84bf79c05ae25ae57f00, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -8121,6 +8129,10 @@ PrefabInstance:
     - target: {fileID: 4930808673151018533, guid: de9ca8ce5e5a84bf79c05ae25ae57f00, type: 3}
       propertyPath: m_LocalScale.z
       value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4930808673151018533, guid: de9ca8ce5e5a84bf79c05ae25ae57f00, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4930808673151018533, guid: de9ca8ce5e5a84bf79c05ae25ae57f00, type: 3}
       propertyPath: m_LocalPosition.y
@@ -8410,7 +8422,7 @@ GameObject:
   - component: {fileID: 1273510384}
   - component: {fileID: 1273510383}
   - component: {fileID: 1273510382}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: EventSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9557,7 +9569,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1743109833}
   - component: {fileID: 1743109832}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: WS manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9577,8 +9589,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lightsaber: {fileID: 652960728}
-  portNum: 8080
-  origin_x: 0
 --- !u!4 &1743109833
 Transform:
   m_ObjectHideFlags: 0

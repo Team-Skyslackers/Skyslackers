@@ -82,6 +82,7 @@ public class SongManager : MonoBehaviour
     {
         musicMap = Resources.Load<TextAsset>("Music/" + musicName + "csv");
         musicFile = Resources.Load<AudioClip>("Music/" + musicName);
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene("Game2");
+        // SceneManager.LoadScene("Game2",LoadSceneMode.Additive);
     }
 }

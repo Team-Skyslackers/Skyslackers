@@ -11,6 +11,8 @@ public class WS_Client : MonoBehaviour
     private float raw_z = 0;
     private float pos_x = 0, pos_y = 0;
     public WebSocket ws;
+    public int portNum;
+    public float origin_x;
     static public string UID;
 
     // calculate max angular velocity over past 10 frames
@@ -23,7 +25,7 @@ public class WS_Client : MonoBehaviour
 
     void Start()
     {
-        ws = new WebSocket("ws://localhost:8080");
+        ws = new WebSocket("ws://localhost:" + portNum.ToString());
         ws.ConnectAsync();
         ws.OnMessage += (sender, message) =>
         {
@@ -51,7 +53,7 @@ public class WS_Client : MonoBehaviour
         pos_x = (raw_x > 90 || raw_x < -90)? -pos_x:pos_x;
         new_av(pos_x, pos_y);
         // Debug.Log(blade_av.ToString("N"));
-        lightsaber.transform.position = new Vector3(pos_x/9.0f, pos_y/9.0f,0);
+        lightsaber.transform.position = new Vector3(pos_x/9.0f + origin_x, pos_y/9.0f,0);
     }
 
 
