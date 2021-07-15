@@ -7,14 +7,17 @@ using UnityEngine.UI;
 
 public class Generate : MonoBehaviour
 {
-    public static int myScore = 0;
-    public static int myCombo = 0;
+    public static int myScore1 = 0;
+    public static int myCombo1 = 0;
+    public static int myScore2 = 0;
+    public static int myCombo2 = 0;
 
     Song currentSong;
 
     static public AudioSource musicFile;
     static public float music_current_time, totalMusicLength;
 
+    public int player;
     public GameObject beam;
     public float max_bolt_x, max_bolt_y;
     public float origin_x;
@@ -22,6 +25,7 @@ public class Generate : MonoBehaviour
     public GameObject combo_num;
     public GameObject combo;
     public GameObject score;
+
     public int layer;
     float StartTime, NextBoltTime;
     string NextBoltType;
@@ -42,14 +46,27 @@ public class Generate : MonoBehaviour
         // alter game settings
         musicFile.volume = SettingsController.music_volume;
         music_current_time = musicFile.time;
-        score.GetComponent<Text>().text = " " + myScore + " ";
-        if (myCombo > 0) {
-            combo.GetComponent<Text>().text = "Combo";
-            combo_num.GetComponent<Text>().text = " " + myCombo;
+        if (player == 1) {
+            score.GetComponent<Text>().text = " " + myScore1 + " ";
+            if (myCombo1 > 0) {
+                combo.GetComponent<Text>().text = "Combo";
+                combo_num.GetComponent<Text>().text = " " + myCombo1;
+            }
+            else {
+                combo.GetComponent<Text>().text = "";
+                combo_num.GetComponent<Text>().text = "";
+            }
         }
         else {
-            combo.GetComponent<Text>().text = "";
-            combo_num.GetComponent<Text>().text = "";
+            score.GetComponent<Text>().text = " " + myScore2 + " ";
+            if (myCombo2 > 0) {
+                combo.GetComponent<Text>().text = "Combo";
+                combo_num.GetComponent<Text>().text = " " + myCombo2;
+            }
+            else {
+                combo.GetComponent<Text>().text = "";
+                combo_num.GetComponent<Text>().text = "";
+            }
         }
         
     }
@@ -77,6 +94,7 @@ public class Generate : MonoBehaviour
             Quaternion.identity);
         generatedBolt.layer = layer;
         generatedBolt.GetComponent<Explosion>().spawn_position = bolt_z_offset + music_timing * SettingsController.bolt_speed;
+        generatedBolt.GetComponent<Explosion>().player = player;
     }
 
     void InstantiateAllBolts()

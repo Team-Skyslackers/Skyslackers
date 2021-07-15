@@ -15,6 +15,8 @@ public class Explosion : MonoBehaviour {
     
     // public GameObject lightsaber;
 
+    public int player;
+
     public Material greenMaterial;
     public Material redMaterial;
     public Material goldMaterial;
@@ -58,10 +60,16 @@ public class Explosion : MonoBehaviour {
             if (miss == 0)
             {
                 miss = 1;
-                Generate.myCombo = 0;
+                if (player == 1)
+                    Generate.myCombo1 = 0;
+                else 
+                    Generate.myCombo2 = 0;
                 Vector3 ex_pt = gameObject.transform.position;
                 Instantiate(text_miss, new Vector3(ex_pt[0], ex_pt[1], ex_pt[2]), Quaternion.identity);
-                GameSummary.missed++;
+                if (player == 1)
+                    GameSummary.missed1++;
+                else
+                    GameSummary.missed2++;
             }
         }
         else if (gameObject.transform.position[2] <= perfect_range + Generate.bolt_z_offset &&
@@ -93,20 +101,38 @@ public class Explosion : MonoBehaviour {
             gameObject.transform.position[2] < 3 * perfect_range + Generate.bolt_z_offset &&
             colour != "red") {
             if (colour == "gold"){
-                GameSummary.perfect++;
-                if (Generate.myCombo > 0) {
-                    Generate.myScore += 40;
+                if (player == 1) {
+                    GameSummary.perfect1++;
+                    if (Generate.myCombo1 > 0) {
+                        Generate.myScore1 += 40;
+                    }
+                    else Generate.myScore1 += 20;
+                    Generate.myCombo1 += 1;
                 }
-                else Generate.myScore += 20;
-                Generate.myCombo += 1;
+                else {
+                    GameSummary.perfect2++;
+                    if (Generate.myCombo2 > 0) {
+                        Generate.myScore2 += 40;
+                    }
+                    else Generate.myScore2 += 20;
+                    Generate.myCombo2 += 1;
+                }
                 // Debug.Log(Generate.myCombo);
                 Vector3 ex_pt = transform.position;
                 Instantiate(text_perfect, new Vector3(ex_pt[0], ex_pt[1], ex_pt[2]), Quaternion.identity);
             }
             else if (colour == "green") {
-                GameSummary.good++;
-                Generate.myScore += 10;
-                Generate.myCombo = 0;
+                if (player == 1) {
+                    GameSummary.good1++;
+                    Generate.myScore1 += 10;
+                    Generate.myCombo1 = 0;
+                }
+                else {
+                    GameSummary.good2++;
+                    Generate.myScore2 += 10;
+                    Generate.myCombo2 = 0;
+                }
+                
                 Vector3 ex_pt = transform.position;
                 Instantiate(text_good, new Vector3(ex_pt[0], ex_pt[1], ex_pt[2]), Quaternion.identity);
             }

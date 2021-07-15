@@ -29,7 +29,7 @@ public class WS_Client : MonoBehaviour
         ws.ConnectAsync();
         ws.OnMessage += (sender, message) =>
         {
-            Debug.Log("data received: "+message.Data);
+            // Debug.Log("data received: "+message.Data);
             if(message.Data.Substring(0, 4) == "gyro")
             {
                 string gyroInfo = message.Data.Substring(5);
