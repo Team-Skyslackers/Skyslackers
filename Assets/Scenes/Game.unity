@@ -7869,7 +7869,7 @@ MonoBehaviour:
   missedText2: {fileID: 1884753630}
   player: 1
   SummaryCanvas: {fileID: 1489864329}
-  WS_manager1: {fileID: 0}
+  WS_manager1: {fileID: 1743109831}
   WS_manager2: {fileID: 0}
 --- !u!1 &993198011
 GameObject:
