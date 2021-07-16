@@ -140,14 +140,20 @@ public class Song
     public float GetHitTime()
     {
         if (current_line < line_count)
-        {
-            string[] timeComponent = each_line[current_line].Split(',')[0].Split('/');
-            // assume time data follow the following convention:
-            //                   7394761/720000
-            // which corresponds to seconds
-            float generationTime = float.Parse(timeComponent[0])
-                / float.Parse(timeComponent[1]);
-            return generationTime;
+        {   
+            if (each_line[current_line].Contains("/")) {
+                string[] timeComponent = each_line[current_line].Split(',')[0].Split('/');
+                // assume time data follow the following convention:
+                //                   7394761/720000
+                // which corresponds to seconds
+                float generationTime = float.Parse(timeComponent[0])
+                    / float.Parse(timeComponent[1]);
+                return generationTime;
+            }
+            else {
+                return float.Parse(each_line[current_line].Split(',')[0]);
+            }
+            
         }
         else
             return 10000;
