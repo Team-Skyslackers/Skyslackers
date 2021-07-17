@@ -29,9 +29,9 @@ public class GameSummary : MonoBehaviour
         public int good;
         public int missed;
         public string dateAndTimeUTC;
-        public GameResults(int _score, int _perfect, int _good, int _missed)
+        public GameResults(int player, int _score, int _perfect, int _good, int _missed)
         {
-            uid = WS_Client.UID;
+            uid = (player == 1)? WS_Client.UID1:WS_Client.UID2;
             music = SongManager.musicFile.name;
             score = _score;
             perfect = _perfect;
@@ -83,14 +83,13 @@ public class GameSummary : MonoBehaviour
             }
 
 
-            if (player == 1) {
-                GameResults gameResults = new GameResults(Generate.myScore1, perfect1, good1, missed1);
-                WS_manager1.GetComponent<WS_Client>().ws.Send("Summary " + JsonUtility.ToJson(gameResults).ToString()) ;
-            }
-            else {
-                GameResults gameResults = new GameResults(Generate.myScore2, perfect2, good2, missed2);
-                WS_manager2.GetComponent<WS_Client>().ws.Send("Summary " + JsonUtility.ToJson(gameResults).ToString()) ;
-            }
+            
+        GameResults gameResults1 = new GameResults(1, Generate.myScore1, perfect1, good1, missed1);
+        WS_manager1.GetComponent<WS_Client>().ws.Send("Summary " + JsonUtility.ToJson(gameResults1).ToString()) ;
+    
+        GameResults gameResults2 = new GameResults(2, Generate.myScore2, perfect2, good2, missed2);
+        WS_manager2.GetComponent<WS_Client>().ws.Send("Summary " + JsonUtility.ToJson(gameResults2).ToString()) ;
+    
             
         }
     }

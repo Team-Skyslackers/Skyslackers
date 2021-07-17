@@ -10145,6 +10145,7 @@ MonoBehaviour:
   lightsaber: {fileID: 652960728}
   portNum: 8080
   origin_x: 0
+  player: 1
 --- !u!4 &1743109833
 Transform:
   m_ObjectHideFlags: 0
@@ -10326,6 +10327,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UIDText: {fileID: 1843581815}
   WS_manager: {fileID: 1743109831}
+  player: 0
 --- !u!114 &1843581815
 MonoBehaviour:
   m_ObjectHideFlags: 0

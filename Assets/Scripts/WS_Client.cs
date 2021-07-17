@@ -13,14 +13,17 @@ public class WS_Client : MonoBehaviour
     public WebSocket ws;
     public int portNum;
     public float origin_x;
-    static public string UID;
+    public int player;
+    static public string UID1;
+    static public string UID2;
 
     // calculate max angular velocity over past 10 frames
     float[] past_av = new float[10] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
     int past_av_ind = 0;
     Vector2 deltaRotation;
     Vector2 last_axy = new Vector2(0, 0);
-    static public float blade_av; // take max over past 10 frame
+    static public float blade_av1; // take max over past 10 frame
+    static public float blade_av2;
 
 
     void Start()
@@ -41,7 +44,10 @@ public class WS_Client : MonoBehaviour
                 //z = -float.Parse(e.Data.Split(' ')[2]);
             }else if (message.Data.Substring(0, 3) == "UID")
             {
-                UID = message.Data.Substring(4);
+                if (player == 1)
+                    UID1 = message.Data.Substring(4);
+                else 
+                    UID2 = message.Data.Substring(4);
             }
         };
     }
@@ -69,6 +75,9 @@ public class WS_Client : MonoBehaviour
         foreach (float val in past_av)
             temp = (val > temp) ? val : temp;
 
-        blade_av = temp;
+        if(player == 1)
+            blade_av1 = temp;
+        else 
+            blade_av2 = temp;
     }
 }

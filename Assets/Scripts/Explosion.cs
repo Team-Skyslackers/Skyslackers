@@ -97,7 +97,7 @@ public class Explosion : MonoBehaviour {
 
     private void OnTriggerStay(Collider other) {
         if (other.gameObject.name == "Lightsaber_Blade" &&
-            WS_Client.blade_av > 10 &&
+            ((WS_Client.blade_av1 > 10 && player == 1) || (WS_Client.blade_av2 > 10 && player == 2))&&
             gameObject.transform.position[2] < 3 * perfect_range + Generate.bolt_z_offset &&
             colour != "red") {
             if (colour == "gold"){

@@ -13782,6 +13782,7 @@ MonoBehaviour:
   lightsaber: {fileID: 662544959}
   portNum: 8090
   origin_x: 1200
+  player: 2
 --- !u!4 &1043063717
 Transform:
   m_ObjectHideFlags: 0
@@ -16307,6 +16308,7 @@ MonoBehaviour:
   lightsaber: {fileID: 652960728}
   portNum: 8080
   origin_x: 0
+  player: 1
 --- !u!4 &1743109833
 Transform:
   m_ObjectHideFlags: 0
