@@ -11,10 +11,15 @@ using UnityEngine.UI;
 
 public class GameSummary : MonoBehaviour
 {
-    static public int perfect, good, missed;
-    public Text totalScore, perfectText, goodText, missedText;
+    static public int perfect1, good1, missed1;
+    static public int perfect2, good2, missed2;
+    public Text totalScore1, perfectText1, goodText1, missedText1;
+    public Text totalScore2, perfectText2, goodText2, missedText2;
+    public int player;
     public GameObject SummaryCanvas;
-    public GameObject WS_manager;
+    public GameObject WS_manager1;
+    public GameObject WS_manager2;
+
     public struct GameResults
     {
         public string uid;
@@ -24,9 +29,9 @@ public class GameSummary : MonoBehaviour
         public int good;
         public int missed;
         public string dateAndTimeUTC;
-        public GameResults(int _score, int _perfect, int _good, int _missed)
+        public GameResults(int player, int _score, int _perfect, int _good, int _missed)
         {
-            uid = WS_Client.UID;
+            uid = (player == 1)? WS_Client.UID1:WS_Client.UID2;
             music = SongManager.musicFile.name;
             score = _score;
             perfect = _perfect;
@@ -41,10 +46,12 @@ public class GameSummary : MonoBehaviour
     private void Start()
     {
         showingSummary = false;
-        perfect = 0;
-        good = 0;
-        missed = 0;
-
+        perfect1 = 0;
+        good1 = 0;
+        missed1 = 0;
+        perfect2 = 0;
+        good2 = 0;
+        missed2 = 0;
         // test code
         // Generate.musicFile.time = Generate.musicFile.clip.length-10;
     }
@@ -57,14 +64,33 @@ public class GameSummary : MonoBehaviour
             // only run once when the game ends
             Cursor.visible = true;
             showingSummary = true;
-            totalScore.text = Generate.myScore.ToString();
-            perfectText.text = perfect.ToString();
-            goodText.text = good.ToString();
-            missedText.text = missed.ToString();
-            SummaryCanvas.SetActive(true);
+            if (player == 1) {
+                totalScore1.text = Generate.myScore1.ToString();
+                perfectText1.text = perfect1.ToString();
+                goodText1.text = good1.ToString();
+                missedText1.text = missed1.ToString();
+                Debug.Log("1");
+                Debug.Log(Generate.myScore1);
+                Debug.Log(perfect1);
+                Debug.Log(good1);
+                Debug.Log(missed1);
+                totalScore2.text = Generate.myScore2.ToString();
+                perfectText2.text = perfect2.ToString();
+                goodText2.text = good2.ToString();
+                missedText2.text = missed2.ToString();
+                Debug.Log("2");
+                SummaryCanvas.SetActive(true);
+            }
 
-            GameResults gameResults = new GameResults(Generate.myScore, perfect, good, missed);
-            WS_manager.GetComponent<WS_Client>().ws.Send("Summary " + JsonUtility.ToJson(gameResults).ToString()) ;
+
+            
+        GameResults gameResults1 = new GameResults(1, Generate.myScore1, perfect1, good1, missed1);
+        WS_manager1.GetComponent<WS_Client>().ws.Send("Summary " + JsonUtility.ToJson(gameResults1).ToString()) ;
+    
+        GameResults gameResults2 = new GameResults(2, Generate.myScore2, perfect2, good2, missed2);
+        WS_manager2.GetComponent<WS_Client>().ws.Send("Summary " + JsonUtility.ToJson(gameResults2).ToString()) ;
+    
+            
         }
     }
 }

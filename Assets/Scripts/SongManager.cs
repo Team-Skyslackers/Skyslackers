@@ -10,8 +10,10 @@ public class SongManager : MonoBehaviour
 {
     static public TextAsset musicMap;
     static public AudioClip musicFile;
-    WebSocket ws;
+    
+    static public string scenename;
 
+    WebSocket ws;
 
     public TextAsset ms;
     public AudioClip ac;
@@ -75,13 +77,14 @@ public class SongManager : MonoBehaviour
             yield return null;
         }
         ws.Close();
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene(scenename);
     }
 
     public void setSong(string musicName)
     {
         musicMap = Resources.Load<TextAsset>("Music/" + musicName + "csv");
         musicFile = Resources.Load<AudioClip>("Music/" + musicName);
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene(scenename);
+        // SceneManager.LoadScene("Game2",LoadSceneMode.Additive);
     }
 }

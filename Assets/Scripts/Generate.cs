@@ -7,26 +7,33 @@ using UnityEngine.UI;
 
 public class Generate : MonoBehaviour
 {
-    public static int myScore = 0;
-    public static int myCombo = 0;
+    public static int myScore1 = 0;
+    public static int myCombo1 = 0;
+    public static int myScore2 = 0;
+    public static int myCombo2 = 0;
 
     Song currentSong;
 
     static public AudioSource musicFile;
     static public float music_current_time, totalMusicLength;
 
+    public int player;
     public GameObject beam;
-    public float max_bolt_x = 4, max_bolt_y = 4;
+    public float max_bolt_x, max_bolt_y;
+    public float origin_x;
     static public float bolt_x_offset = 0, bolt_y_offset = 5, bolt_z_offset = 20;
     public GameObject combo_num;
     public GameObject combo;
     public GameObject score;
+
+    public int layer;
     float StartTime, NextBoltTime;
     string NextBoltType;
 
     void Start()
     {
         currentSong = new Song(SongManager.musicMap, SettingsController.bolt_speed);
+        Debug.Log(SongManager.musicMap);
         musicFile = GetComponent<AudioSource>();
         musicFile.clip = SongManager.musicFile;
         musicFile.Play();
@@ -39,14 +46,27 @@ public class Generate : MonoBehaviour
         // alter game settings
         musicFile.volume = SettingsController.music_volume;
         music_current_time = musicFile.time;
-        score.GetComponent<Text>().text = " " + myScore + " ";
-        if (myCombo > 0) {
-            combo.GetComponent<Text>().text = "Combo";
-            combo_num.GetComponent<Text>().text = " " + myCombo;
+        if (player == 1) {
+            score.GetComponent<Text>().text = " " + myScore1 + " ";
+            if (myCombo1 > 0) {
+                combo.GetComponent<Text>().text = "Combo";
+                combo_num.GetComponent<Text>().text = " " + myCombo1;
+            }
+            else {
+                combo.GetComponent<Text>().text = "";
+                combo_num.GetComponent<Text>().text = "";
+            }
         }
         else {
-            combo.GetComponent<Text>().text = "";
-            combo_num.GetComponent<Text>().text = "";
+            score.GetComponent<Text>().text = " " + myScore2 + " ";
+            if (myCombo2 > 0) {
+                combo.GetComponent<Text>().text = "Combo";
+                combo_num.GetComponent<Text>().text = " " + myCombo2;
+            }
+            else {
+                combo.GetComponent<Text>().text = "";
+                combo_num.GetComponent<Text>().text = "";
+            }
         }
         
     }
@@ -56,11 +76,11 @@ public class Generate : MonoBehaviour
         // assume 123QEASD cooresponds to 8 possible positions on screen.
         float x, y;
         if (pos == 'Q' || pos == 'A' || pos == 'Z')
-            x = -max_bolt_x;
+            x = -max_bolt_x+origin_x;
         else if (pos == 'W' || pos == 'X')
-            x = 0;
+            x = origin_x;
         else
-            x = max_bolt_x;
+            x = max_bolt_x+origin_x;
 
         if (pos == 'Q' || pos == 'W' || pos == 'E')
             y = max_bolt_y;
@@ -72,7 +92,9 @@ public class Generate : MonoBehaviour
         GameObject generatedBolt = Instantiate(beam, new Vector3(bolt_x_offset + x, bolt_y_offset + y,
             bolt_z_offset + music_timing * SettingsController.bolt_speed),
             Quaternion.identity);
+        // generatedBolt.layer = layer;
         generatedBolt.GetComponent<Explosion>().spawn_position = bolt_z_offset + music_timing * SettingsController.bolt_speed;
+        generatedBolt.GetComponent<Explosion>().player = player;
     }
 
     void InstantiateAllBolts()
@@ -118,14 +140,20 @@ public class Song
     public float GetHitTime()
     {
         if (current_line < line_count)
-        {
-            string[] timeComponent = each_line[current_line].Split(',')[0].Split('/');
-            // assume time data follow the following convention:
-            //                   7394761/720000
-            // which corresponds to seconds
-            float generationTime = float.Parse(timeComponent[0])
-                / float.Parse(timeComponent[1]);
-            return generationTime;
+        {   
+            if (each_line[current_line].Contains("/")) {
+                string[] timeComponent = each_line[current_line].Split(',')[0].Split('/');
+                // assume time data follow the following convention:
+                //                   7394761/720000
+                // which corresponds to seconds
+                float generationTime = float.Parse(timeComponent[0])
+                    / float.Parse(timeComponent[1]);
+                return generationTime;
+            }
+            else {
+                return float.Parse(each_line[current_line].Split(',')[0]);
+            }
+            
         }
         else
             return 10000;

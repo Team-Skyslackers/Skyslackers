@@ -11,23 +11,28 @@ public class WS_Client : MonoBehaviour
     private float raw_z = 0;
     private float pos_x = 0, pos_y = 0;
     public WebSocket ws;
-    static public string UID;
+    public int portNum;
+    public float origin_x;
+    public int player;
+    static public string UID1;
+    static public string UID2;
 
     // calculate max angular velocity over past 10 frames
     float[] past_av = new float[10] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
     int past_av_ind = 0;
     Vector2 deltaRotation;
     Vector2 last_axy = new Vector2(0, 0);
-    static public float blade_av; // take max over past 10 frame
+    static public float blade_av1; // take max over past 10 frame
+    static public float blade_av2;
 
 
     void Start()
     {
-        ws = new WebSocket("ws://localhost:8080");
+        ws = new WebSocket("ws://localhost:" + portNum.ToString());
         ws.ConnectAsync();
         ws.OnMessage += (sender, message) =>
         {
-            Debug.Log("data received: "+message.Data);
+            // Debug.Log("data received: "+message.Data);
             if(message.Data.Substring(0, 4) == "gyro")
             {
                 string gyroInfo = message.Data.Substring(5);
@@ -39,7 +44,10 @@ public class WS_Client : MonoBehaviour
                 //z = -float.Parse(e.Data.Split(' ')[2]);
             }else if (message.Data.Substring(0, 3) == "UID")
             {
-                UID = message.Data.Substring(4);
+                if (player == 1)
+                    UID1 = message.Data.Substring(4);
+                else 
+                    UID2 = message.Data.Substring(4);
             }
         };
     }
@@ -51,7 +59,7 @@ public class WS_Client : MonoBehaviour
         pos_x = (raw_x > 90 || raw_x < -90)? -pos_x:pos_x;
         new_av(pos_x, pos_y);
         // Debug.Log(blade_av.ToString("N"));
-        lightsaber.transform.position = new Vector3(pos_x/9.0f, pos_y/9.0f,0);
+        lightsaber.transform.position = new Vector3(pos_x/9.0f + origin_x, pos_y/9.0f,0);
     }
 
 
@@ -67,6 +75,9 @@ public class WS_Client : MonoBehaviour
         foreach (float val in past_av)
             temp = (val > temp) ? val : temp;
 
-        blade_av = temp;
+        if(player == 1)
+            blade_av1 = temp;
+        else 
+            blade_av2 = temp;
     }
 }
