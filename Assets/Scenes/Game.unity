@@ -10143,7 +10143,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lightsaber: {fileID: 652960728}
-  portNum: 8080
+  portNum: 18080
   origin_x: 0
   player: 1
 --- !u!4 &1743109833
