@@ -22,10 +22,11 @@ public class SongManager : MonoBehaviour
     {
         musicMap = null;
         musicFile = null;
-        ws = new WebSocket("ws://localhost:8080");
+        ws = new WebSocket("ws://localhost:18080");
         ws.ConnectAsync();
         ws.OnMessage += (sender, message) =>
-        {
+        {   
+            Debug.Log(message);
             if (message.Data.Substring(0, 13) == "musicselected")
             {
                 string URLinfo = message.Data.Substring(15);
