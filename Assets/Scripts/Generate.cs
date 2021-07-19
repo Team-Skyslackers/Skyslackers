@@ -90,7 +90,7 @@ public class Generate : MonoBehaviour
             y = -max_bolt_y;
 
         GameObject generatedBolt = Instantiate(beam, new Vector3(bolt_x_offset + x, bolt_y_offset + y,
-            bolt_z_offset + music_timing * SettingsController.bolt_speed),
+            bolt_z_offset + (music_timing + SettingsController.music_delay) * SettingsController.bolt_speed),
             Quaternion.identity);
         // generatedBolt.layer = layer;
         generatedBolt.GetComponent<Explosion>().spawn_position = bolt_z_offset + music_timing * SettingsController.bolt_speed;

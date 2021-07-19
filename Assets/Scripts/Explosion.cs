@@ -49,7 +49,7 @@ public class Explosion : MonoBehaviour {
     void Update()
     {
         gameObject.transform.position = new Vector3(gameObject.transform.position[0], gameObject.transform.position[1],
-            spawn_position - Generate.music_current_time * SettingsController.bolt_speed);
+            spawn_position - (Generate.music_current_time + SettingsController.music_delay) * SettingsController.bolt_speed);
         // Debug.Log("moved");
 
         //if (gameObject.transform.position[2] < Generate.bolt_z_offset - 2 * perfect_range)

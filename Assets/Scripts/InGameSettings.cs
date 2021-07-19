@@ -50,7 +50,7 @@ public class InGameSettings : MonoBehaviour
         }
         music_volume_display.text = ((int)music_volume_slider.value).ToString();
         SFX_display.text = ((int)SFX_slider.value).ToString();
-        music_delay_display.text = ((int)music_delay_slider.value).ToString();
+        music_delay_display.text = (music_delay_slider.value).ToString("F");
     }
 
 }
