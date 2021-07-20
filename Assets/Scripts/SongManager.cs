@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Networking;
 using WebSocketSharp;
+using System;
 
 public class SongManager : MonoBehaviour
 {
@@ -12,26 +13,44 @@ public class SongManager : MonoBehaviour
     static public AudioClip musicFile;
     
     static public string scenename;
+    static public string songname;
 
     WebSocket ws;
 
+    
     public TextAsset ms;
     public AudioClip ac;
 
     void Start()
     {
+        songname = "";
         musicMap = null;
         musicFile = null;
         ws = new WebSocket("ws://localhost:18080");
+        Debug.Log("songmanager online");
         ws.ConnectAsync();
         ws.OnMessage += (sender, message) =>
         {   
-            Debug.Log(message);
+            Debug.Log(message.Data);
             if (message.Data.Substring(0, 13) == "musicselected")
-            {
+            {   
+                Debug.Log(message.Data);
                 string URLinfo = message.Data.Substring(15);
                 string mp3URL = URLinfo.Split(' ')[0];
                 string csvURL = URLinfo.Split(' ')[1];
+
+                string source = mp3URL.Substring(mp3URL.IndexOf("musicFile%2F")+12,
+                mp3URL.IndexOf("_song.csv")-mp3URL.IndexOf("musicFile%2F")-12);
+                string[] stringSeparators = new string[] {"%20"};
+                string[] result;
+                result = source.Split(stringSeparators, StringSplitOptions.None);
+                // Debug.Log(result);
+                foreach (String i in result) {
+                    // Debug.Log(i);
+                    songname+=(i+' ');
+                }
+                songname = songname.Remove(songname.Length - 1, 1);  
+                Debug.Log(songname);
                 StartCoroutine(LoadGameFiles(mp3URL, csvURL));
             }
         };
@@ -47,7 +66,7 @@ public class SongManager : MonoBehaviour
                 Debug.Log(uwr.error);
             }
             else {
-                //Debug.Log("File://"+Application.persistentDataPath + pathToMusic);
+                //Debug.Log("File://"+Applicaion.persistentDataPath + pathToMusic);
                 // Get downloaded asset bundle
                 musicFile = DownloadHandlerAudioClip.GetContent(uwr);
                 // musicFile.LoadAudioData();
@@ -56,6 +75,7 @@ public class SongManager : MonoBehaviour
                 // musicFile = music_file;
                 Debug.Log(musicFile);
                 Debug.Log(musicFile.length);
+                ws.Send("Loaded "+songname);
             }
         }
         using (UnityWebRequest uwr = UnityWebRequest.Get(pathToMap)) {

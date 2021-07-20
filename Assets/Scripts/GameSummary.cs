@@ -32,7 +32,7 @@ public class GameSummary : MonoBehaviour
         public GameResults(int player, int _score, int _perfect, int _good, int _missed)
         {
             uid = (player == 1)? WS_Client.UID1:WS_Client.UID2;
-            music = SongManager.musicFile.name;
+            music = SongManager.songname;
             score = _score;
             perfect = _perfect;
             good = _good;
