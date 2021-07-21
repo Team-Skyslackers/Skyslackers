@@ -30,11 +30,9 @@ public class SongManager : MonoBehaviour
         Debug.Log("songmanager online");
         ws.ConnectAsync();
         ws.OnMessage += (sender, message) =>
-        {   
-            Debug.Log(message.Data);
+        {
             if (message.Data.Substring(0, 13) == "musicselected")
             {   
-                Debug.Log(message.Data);
                 string URLinfo = message.Data.Substring(15);
                 string mp3URL = URLinfo.Split(' ')[0];
                 string csvURL = URLinfo.Split(' ')[1];

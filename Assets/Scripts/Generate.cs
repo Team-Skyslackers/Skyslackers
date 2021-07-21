@@ -93,8 +93,8 @@ public class Generate : MonoBehaviour
             bolt_z_offset + (music_timing + SettingsController.music_delay) * SettingsController.bolt_speed),
             Quaternion.identity);
         // generatedBolt.layer = layer;
-        generatedBolt.GetComponent<Explosion>().spawn_position = bolt_z_offset + music_timing * SettingsController.bolt_speed;
-        generatedBolt.GetComponent<Explosion>().player = player;
+        generatedBolt.GetComponent<BeamControl>().spawn_position = bolt_z_offset + music_timing * SettingsController.bolt_speed;
+        generatedBolt.GetComponent<BeamControl>().player = player;
     }
 
     void InstantiateAllBolts()

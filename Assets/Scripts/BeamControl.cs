@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Explosion : MonoBehaviour {
+public class BeamControl : MonoBehaviour {
     
     public float cubeSize = 0.2f;
     public int cubesInRow = 5;
@@ -22,6 +22,7 @@ public class Explosion : MonoBehaviour {
     public Material goldMaterial;
     public Material cubeMaterial;
 
+    GameObject bladeObject;
     public float explosionForce = 50f;
     public float explosionRadius = 4f;
     public float explosionUpward = 0.4f;
@@ -44,6 +45,7 @@ public class Explosion : MonoBehaviour {
         cubesPivot = new Vector3(cubesPivotDistance, cubesPivotDistance, cubesPivotDistance);
         // Physics.IgnoreLayerCollision(7, 8, true);
         // Debug.Log(Physics.GetIgnoreLayerCollision(7, 8));
+        bladeObject = GameObject.Find("Lightsaber_Blade");
 
     }
     void Update()
@@ -89,11 +91,6 @@ public class Explosion : MonoBehaviour {
             Destroy(this.gameObject);
         }
     }
-    // Update is called once per frame
-    // void Update() {
-    //     counter += 1;
-    //     Debug.Log(counter);
-    // }
 
     private void OnTriggerStay(Collider other) {
         if (other.gameObject.name == "Lightsaber_Blade" &&
@@ -149,6 +146,9 @@ public class Explosion : MonoBehaviour {
     public void explode() {
         //make object disappear
         gameObject.SetActive(false);
+
+        // play explosion sound
+        bladeObject.GetComponent<ExplosionSound>().PlayExplosionSound();
 
         //loop 3 times to create 5x5x5 pieces in x,y,z coordinates
         for (int x = 0; x < cubesInRow; x++) {
