@@ -9,14 +9,14 @@ public class Disappear : MonoBehaviour
 
     void Start()
     {
-        init_time = Time.time;    
+        init_time = Time.time;
     }
 
     // Update is called once per frame
     void Update()
     {
         if (Time.time - init_time > 1) {
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
     }
 }

@@ -6830,6 +6830,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   source: {fileID: 662544957}
+  explosionEffectGenerator: {fileID: 6312827500426781660, guid: 02969106f219a45089d378469ba39a50, type: 3}
 --- !u!82 &662544957
 AudioSource:
   m_ObjectHideFlags: 0
@@ -15034,6 +15035,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   source: {fileID: 1297679361}
+  explosionEffectGenerator: {fileID: 6312827500426781660, guid: 02969106f219a45089d378469ba39a50, type: 3}
 --- !u!4 &1297679363 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4930808673151018533, guid: de9ca8ce5e5a84bf79c05ae25ae57f00, type: 3}

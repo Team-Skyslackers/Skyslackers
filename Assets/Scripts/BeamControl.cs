@@ -148,32 +148,32 @@ public class BeamControl : MonoBehaviour {
         gameObject.SetActive(false);
 
         // play explosion sound
-        bladeObject.GetComponent<ExplosionSound>().PlayExplosionSound();
+        bladeObject.GetComponent<ExplosionSound>().PlayExplosionSound(transform.position);
 
-        //loop 3 times to create 5x5x5 pieces in x,y,z coordinates
-        for (int x = 0; x < cubesInRow; x++) {
-            for (int y = 0; y < cubesInRow; y++) {
-                for (int z = 0; z < cubesInRow; z++) {
-                    createPiece(x, y, z);
-                }
-            }
-        }
+        ////loop 3 times to create 5x5x5 pieces in x,y,z coordinates
+        //for (int x = 0; x < cubesInRow; x++) {
+        //    for (int y = 0; y < cubesInRow; y++) {
+        //        for (int z = 0; z < cubesInRow; z++) {
+        //            createPiece(x, y, z);
+        //        }
+        //    }
+        //}
 
-        //get explosion position
-        Vector3 explosionPos = transform.position;
-        //get colliders in that position and radius
-        Collider[] colliders = Physics.OverlapSphere(explosionPos, explosionRadius);
+        ////get explosion position
+        //Vector3 explosionPos = transform.position;
+        ////get colliders in that position and radius
+        //Collider[] colliders = Physics.OverlapSphere(explosionPos, explosionRadius);
         
-        //add explosion force to all colliders in that overlap sphere
-        foreach (Collider hit in colliders) {
-            //get rigidbody from collider object
-            Rigidbody rb = hit.GetComponent<Rigidbody>();
-            if (rb != null) {
-                //add explosion force to this body with given parameters
-                rb.AddExplosionForce(explosionForce, transform.position, explosionRadius, explosionUpward);
+        ////add explosion force to all colliders in that overlap sphere
+        //foreach (Collider hit in colliders) {
+        //    //get rigidbody from collider object
+        //    Rigidbody rb = hit.GetComponent<Rigidbody>();
+        //    if (rb != null) {
+        //        //add explosion force to this body with given parameters
+        //        rb.AddExplosionForce(explosionForce, transform.position, explosionRadius, explosionUpward);
                 
-            }
-        }
+        //    }
+        //}
         Destroy(this.gameObject);
     }
 
