@@ -21,9 +21,9 @@ public class ShowFPS : MonoBehaviour
     void Update()
     {
         framesCount++;
-        if (Time.time - startTime > 1)
+        if (Time.time - startTime > 0.5f)
         {
-            FPSdisplay.text = (((float)framesCount) / (Time.time - startTime)).ToString("N");
+            FPSdisplay.text = (((float)framesCount) / (Time.time - startTime)).ToString("N") + " FPS";
             framesCount = 0;
             startTime = Time.time;
         }
