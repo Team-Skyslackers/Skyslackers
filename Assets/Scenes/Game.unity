@@ -10228,6 +10228,7 @@ MonoBehaviour:
   origin_x: 0
   player: 1
   WS_Datarate_display: {fileID: 895711063}
+  pause_panel: {fileID: 1406410532}
 --- !u!4 &1743109833
 Transform:
   m_ObjectHideFlags: 0

@@ -32,6 +32,8 @@ public class WS_Client : MonoBehaviour
     float dataCountStartTime;
     Quaternion last_frame_data;
 
+    public GameObject pause_panel;
+
     void Start()
     {
         dataCount = 0;
@@ -63,12 +65,15 @@ public class WS_Client : MonoBehaviour
     }
     void Update()
     {
-        lightsaber.transform.rotation = Quaternion.Euler(x, y, z);
         pos_x = (raw_y < 180)? ((raw_y > 90)? raw_y - 180.0f:-raw_y): ((raw_y < 270)? raw_y - 180.0f :360.0f - raw_y);
         pos_y = (raw_x > 90)? 180.0f-raw_x:((raw_x<-90)? -180.0f - raw_x:raw_x);
         pos_x = (raw_x > 90 || raw_x < -90)? -pos_x:pos_x;
         new_av(pos_x, pos_y);
-        lightsaber.transform.position = new Vector3(pos_x/9.0f + origin_x, pos_y/9.0f,0);
+        if (pause_panel == null || !pause_panel.activeSelf)
+        {
+            lightsaber.transform.rotation = Quaternion.Euler(x, y, z);
+            lightsaber.transform.position = new Vector3(pos_x / 9.0f + origin_x, pos_y / 9.0f, 0);
+        }
 
         // show data change rate (as a representation of how smooth the blade is running)
         Quaternion new_frame_data = lightsaber.transform.rotation;

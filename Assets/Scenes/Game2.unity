@@ -13784,6 +13784,8 @@ MonoBehaviour:
   portNum: 18090
   origin_x: 1200
   player: 2
+  WS_Datarate_display: {fileID: 0}
+  pause_panel: {fileID: 1406410532}
 --- !u!4 &1043063717
 Transform:
   m_ObjectHideFlags: 0
@@ -16311,6 +16313,8 @@ MonoBehaviour:
   portNum: 18080
   origin_x: 0
   player: 1
+  WS_Datarate_display: {fileID: 0}
+  pause_panel: {fileID: 1406410532}
 --- !u!4 &1743109833
 Transform:
   m_ObjectHideFlags: 0
