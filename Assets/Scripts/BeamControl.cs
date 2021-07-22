@@ -31,7 +31,7 @@ public class BeamControl : MonoBehaviour {
     public int miss = 0;
 
 
-    static public float perfect_range = 20;
+    float perfect_time_range = 0.1f;
 
     public float spawn_position;
 
@@ -54,8 +54,7 @@ public class BeamControl : MonoBehaviour {
             spawn_position - (Generate.music_current_time + SettingsController.music_delay) * SettingsController.bolt_speed);
         // Debug.Log("moved");
 
-        //if (gameObject.transform.position[2] < Generate.bolt_z_offset - 2 * perfect_range)
-        if (gameObject.transform.position[2] < 0)
+        if (gameObject.transform.position[2] <= - 3 * (SettingsController.bolt_speed * perfect_time_range / 2) + Generate.bolt_z_offset)
         {
             gameObject.GetComponent<MeshRenderer>().material = redMaterial;
             colour = "red";
@@ -74,8 +73,8 @@ public class BeamControl : MonoBehaviour {
                     GameSummary.missed2++;
             }
         }
-        else if (gameObject.transform.position[2] <= perfect_range + Generate.bolt_z_offset &&
-          gameObject.transform.position[2] > -perfect_range + Generate.bolt_z_offset)
+        else if (gameObject.transform.position[2] <= (SettingsController.bolt_speed * perfect_time_range / 2) + Generate.bolt_z_offset &&
+          gameObject.transform.position[2] > -(SettingsController.bolt_speed * perfect_time_range / 2) + Generate.bolt_z_offset)
         {
             gameObject.GetComponent<MeshRenderer>().material = goldMaterial;
             colour = "gold";
@@ -95,7 +94,7 @@ public class BeamControl : MonoBehaviour {
     private void OnTriggerStay(Collider other) {
         if (other.gameObject.name == "Lightsaber_Blade" &&
             ((WS_Client.blade_av1 > 10 && player == 1) || (WS_Client.blade_av2 > 10 && player == 2))&&
-            gameObject.transform.position[2] < 3 * perfect_range + Generate.bolt_z_offset &&
+            //gameObject.transform.position[2] < 3 * (SettingsController.bolt_speed * perfect_time_range) + Generate.bolt_z_offset &&
             colour != "red") {
             if (colour == "gold"){
                 if (player == 1) {

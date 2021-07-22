@@ -9,10 +9,10 @@ using System;
 
 public class SongManager : MonoBehaviour
 {
-    static public TextAsset musicMap;
-    static public AudioClip musicFile;
-    
-    static public string scenename;
+    static public TextAsset musicMap = Resources.Load<TextAsset>("Music/song1csv");
+    static public AudioClip musicFile = Resources.Load<AudioClip>("Music/song1");
+
+    static public string scenename = "game";
     static public string songname;
 
     WebSocket ws;

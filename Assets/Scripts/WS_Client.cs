@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using WebSocketSharp;
 
 public class WS_Client : MonoBehaviour
@@ -25,9 +26,20 @@ public class WS_Client : MonoBehaviour
     static public float blade_av1; // take max over past 10 frame
     static public float blade_av2;
 
+    // Show WS data rate
+    public Text WS_Datarate_display;
+    int dataCount;
+    float dataCountStartTime;
+    Quaternion last_frame_data;
+
+    public GameObject pause_panel;
 
     void Start()
     {
+        dataCount = 0;
+        dataCountStartTime = Time.time;
+        last_frame_data = Quaternion.identity;
+
         ws = new WebSocket("ws://localhost:" + portNum.ToString());
         ws.ConnectAsync();
         ws.OnMessage += (sender, message) =>
@@ -53,13 +65,31 @@ public class WS_Client : MonoBehaviour
     }
     void Update()
     {
-        lightsaber.transform.rotation = Quaternion.Euler(x, y, z);
         pos_x = (raw_y < 180)? ((raw_y > 90)? raw_y - 180.0f:-raw_y): ((raw_y < 270)? raw_y - 180.0f :360.0f - raw_y);
         pos_y = (raw_x > 90)? 180.0f-raw_x:((raw_x<-90)? -180.0f - raw_x:raw_x);
         pos_x = (raw_x > 90 || raw_x < -90)? -pos_x:pos_x;
         new_av(pos_x, pos_y);
-        // Debug.Log(blade_av.ToString("N"));
-        lightsaber.transform.position = new Vector3(pos_x/9.0f + origin_x, pos_y/9.0f,0);
+        if (pause_panel == null || !pause_panel.activeSelf)
+        {
+            lightsaber.transform.rotation = Quaternion.Euler(x, y, z);
+            lightsaber.transform.position = new Vector3(pos_x / 9.0f + origin_x, pos_y / 9.0f, 0);
+        }
+
+        // show data change rate (as a representation of how smooth the blade is running)
+        Quaternion new_frame_data = lightsaber.transform.rotation;
+        if (last_frame_data != new_frame_data)
+        {
+            dataCount++;
+            last_frame_data = new_frame_data;
+        }
+        //Debug.Log(dataCount);
+        if (Time.time - dataCountStartTime > 0.5f)
+        {
+            if (WS_Datarate_display != null)
+                WS_Datarate_display.text = (((float)dataCount) / (Time.time - dataCountStartTime)).ToString("N") + " DPS";
+            dataCount = 0;
+            dataCountStartTime = Time.time;
+        }
     }
 
 
