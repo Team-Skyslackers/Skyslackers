@@ -54,7 +54,7 @@ public class BeamControl : MonoBehaviour {
             spawn_position - (Generate.music_current_time + SettingsController.music_delay) * SettingsController.bolt_speed);
         // Debug.Log("moved");
 
-        if (gameObject.transform.position[2] < 0)
+        if (gameObject.transform.position[2] <= - 3 * (SettingsController.bolt_speed * perfect_time_range / 2) + Generate.bolt_z_offset)
         {
             gameObject.GetComponent<MeshRenderer>().material = redMaterial;
             colour = "red";
