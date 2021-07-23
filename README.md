@@ -1,6 +1,6 @@
 # Skyslackers
 
-![LOGO](Assets/Images/Start%20Page/Title.png)
+![LOGO](Assets/Images/Start%20Page/LOGO.png)
 
 Team: the Skyslackers
 
