@@ -11,9 +11,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Game2.unity
     guid: c85503e974a064e80b75ac9237d4bf03
-  - enabled: 0
-    path: Assets/Scenes/Game1.unity
-    guid: 23d92ec517cfe42ec909ff9809421a63
   - enabled: 1
     path: Assets/Scenes/Select Music.unity
     guid: 1d7e5a8a982594b168918a09dccecd43
