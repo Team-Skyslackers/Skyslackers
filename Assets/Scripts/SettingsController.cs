@@ -18,9 +18,14 @@ public class SettingsController : MonoBehaviour
         SFX_display,
         bolt_speed_display,
         music_delay_display;
+    public Button
+        Button1,
+        Button2,
+        Button3;
 
     private void Start()
     {
+        Button1.Select();
         SFX_slider.value = SFX_volume;
         bolt_speed_slider.value = bolt_speed;
         music_delay_slider.value = music_delay;
