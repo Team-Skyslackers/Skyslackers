@@ -53,7 +53,7 @@ public class GameSummary : MonoBehaviour
         good2 = 0;
         missed2 = 0;
         // test code
-        Generate.musicFile.time = Generate.musicFile.clip.length-10;
+        //Generate.musicFile.time = Generate.musicFile.clip.length-10;
         Debug.Log("settime");
     }
 
