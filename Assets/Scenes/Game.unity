@@ -7657,7 +7657,6 @@ GameObject:
   - component: {fileID: 963194230}
   - component: {fileID: 963194231}
   - component: {fileID: 963194229}
-  - component: {fileID: 963194232}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -7911,30 +7910,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &963194232
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 963194225}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ef1c6309f7704a59b3aa82182da10dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  totalScore1: {fileID: 1978203737}
-  perfectText1: {fileID: 2141777469}
-  goodText1: {fileID: 393834900}
-  missedText1: {fileID: 1944857810}
-  totalScore2: {fileID: 1728563063}
-  perfectText2: {fileID: 1728563063}
-  goodText2: {fileID: 944992198}
-  missedText2: {fileID: 1884753630}
-  player: 1
-  SummaryCanvas: {fileID: 1489864329}
-  WS_manager1: {fileID: 1743109831}
-  WS_manager2: {fileID: 0}
 --- !u!1 &993198011
 GameObject:
   m_ObjectHideFlags: 0
@@ -9350,6 +9325,7 @@ GameObject:
   - component: {fileID: 1489864333}
   - component: {fileID: 1489864332}
   - component: {fileID: 1489864331}
+  - component: {fileID: 1489864330}
   m_Layer: 5
   m_Name: End Menu
   m_TagString: Untagged
@@ -9357,6 +9333,30 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!114 &1489864330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1489864329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ef1c6309f7704a59b3aa82182da10dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  totalScore1: {fileID: 1978203737}
+  perfectText1: {fileID: 2141777469}
+  goodText1: {fileID: 393834900}
+  missedText1: {fileID: 1944857810}
+  totalScore2: {fileID: 1728563063}
+  perfectText2: {fileID: 1728563063}
+  goodText2: {fileID: 944992198}
+  missedText2: {fileID: 1884753630}
+  player: 1
+  SummaryCanvas: {fileID: 1489864329}
+  WS_manager1: {fileID: 1743109831}
+  WS_manager2: {fileID: 0}
 --- !u!114 &1489864331
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11498,5 +11498,9 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 963194227}
+    - target: {fileID: 1597397987051172317, guid: 7cef2eca1416843e0a467e4b6bccbb20, type: 3}
+      propertyPath: m_PlaneDistance
+      value: 600
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7cef2eca1416843e0a467e4b6bccbb20, type: 3}

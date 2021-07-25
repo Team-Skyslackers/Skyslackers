@@ -83,12 +83,17 @@ public class GameSummary : MonoBehaviour
             }
 
 
-            
-        GameResults gameResults1 = new GameResults(1, Generate.myScore1, perfect1, good1, missed1);
-        WS_manager1.GetComponent<WS_Client>().ws.Send("Summary " + JsonUtility.ToJson(gameResults1).ToString()) ;
-    
-        GameResults gameResults2 = new GameResults(2, Generate.myScore2, perfect2, good2, missed2);
-        WS_manager2.GetComponent<WS_Client>().ws.Send("Summary " + JsonUtility.ToJson(gameResults2).ToString()) ;
+            if (WS_manager1 != null)
+            {
+                GameResults gameResults1 = new GameResults(1, Generate.myScore1, perfect1, good1, missed1);
+                WS_manager1.GetComponent<WS_Client>().ws.Send("Summary " + JsonUtility.ToJson(gameResults1).ToString());
+            }
+
+            if (WS_manager2 != null)
+            {
+                GameResults gameResults2 = new GameResults(2, Generate.myScore2, perfect2, good2, missed2);
+                WS_manager2.GetComponent<WS_Client>().ws.Send("Summary " + JsonUtility.ToJson(gameResults2).ToString());
+            }
     
             
         }
