@@ -10359,6 +10359,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Corridor
       objectReference: {fileID: 0}
+    - target: {fileID: 1597397987051172314, guid: 7cef2eca1416843e0a467e4b6bccbb20, type: 3}
+      propertyPath: m_ScreenMatchMode
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1597397987051172316, guid: 7cef2eca1416843e0a467e4b6bccbb20, type: 3}
       propertyPath: m_Pivot.x
       value: 0
