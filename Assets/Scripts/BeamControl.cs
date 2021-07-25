@@ -20,7 +20,6 @@ public class BeamControl : MonoBehaviour {
     public Material greenMaterial;
     public Material redMaterial;
     public Material goldMaterial;
-    public Material cubeMaterial;
 
     GameObject bladeObject;
     public float explosionForce = 50f;
@@ -28,10 +27,10 @@ public class BeamControl : MonoBehaviour {
     public float explosionUpward = 0.4f;
     public int counter = 0;
     public float prev_time;
-    public int miss = 0;
+    public bool miss = false;
 
 
-    float perfect_time_range = 0.1f;
+    float perfect_time_range = 0.2f;
 
     public float spawn_position;
 
@@ -54,13 +53,13 @@ public class BeamControl : MonoBehaviour {
             spawn_position - (Generate.music_current_time + SettingsController.music_delay) * SettingsController.bolt_speed);
         // Debug.Log("moved");
 
-        if (gameObject.transform.position[2] <= - 3 * (SettingsController.bolt_speed * perfect_time_range / 2) + Generate.bolt_z_offset)
+        if (gameObject.transform.position[2] <= -(SettingsController.bolt_speed * perfect_time_range/2) + Generate.bolt_z_offset)
         {
             gameObject.GetComponent<MeshRenderer>().material = redMaterial;
             colour = "red";
-            if (miss == 0)
+            if (!miss)
             {
-                miss = 1;
+                miss = true;
                 if (player == 1)
                     Generate.myCombo1 = 0;
                 else 
@@ -73,8 +72,8 @@ public class BeamControl : MonoBehaviour {
                     GameSummary.missed2++;
             }
         }
-        else if (gameObject.transform.position[2] <= (SettingsController.bolt_speed * perfect_time_range / 2) + Generate.bolt_z_offset &&
-          gameObject.transform.position[2] > -(SettingsController.bolt_speed * perfect_time_range / 2) + Generate.bolt_z_offset)
+        else if (gameObject.transform.position[2] <= (SettingsController.bolt_speed * perfect_time_range) + Generate.bolt_z_offset &&
+          gameObject.transform.position[2] > Generate.bolt_z_offset)
         {
             gameObject.GetComponent<MeshRenderer>().material = goldMaterial;
             colour = "gold";
@@ -136,7 +135,7 @@ public class BeamControl : MonoBehaviour {
             explode();
             prev_time = Time.time;
             
-            Debug.Log(gameObject.transform.position[2].ToString("N"));
+            //Debug.Log(gameObject.transform.position[2].ToString("N"));
         }
         
 
@@ -185,7 +184,7 @@ public class BeamControl : MonoBehaviour {
         //set piece position and scale
         piece.transform.position = transform.position + new Vector3(cubeSize * x, cubeSize * y, cubeSize * z) - cubesPivot;
         piece.transform.localScale = new Vector3(cubeSize, cubeSize, cubeSize);
-        piece.GetComponent<MeshRenderer>().material = cubeMaterial;
+        piece.GetComponent<MeshRenderer>().material = greenMaterial;
 
         //add rigidbody and set mass
         piece.AddComponent<Rigidbody>();

@@ -163,7 +163,7 @@ public class Generate : MonoBehaviour
 
         GameObject generatedBolt = Instantiate(beam, new Vector3(bolt_x_offset + x, bolt_y_offset + y,
             bolt_z_offset + (music_timing + SettingsController.music_delay) * SettingsController.bolt_speed),
-            Quaternion.identity);
+            Quaternion.Euler(90, 0, 0));
         // generatedBolt.layer = layer;
         generatedBolt.GetComponent<BeamControl>().spawn_position = bolt_z_offset + music_timing * SettingsController.bolt_speed;
         generatedBolt.GetComponent<BeamControl>().player = player;
