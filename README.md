@@ -2,7 +2,7 @@
 
 ![LOGO](Assets/Resources/Images/Start%20Page/LOGO.png)
 
-Team: the Skyslackers
+by Team Skyslackers
 
 Proposed Level of Achievement: Artemis
 
