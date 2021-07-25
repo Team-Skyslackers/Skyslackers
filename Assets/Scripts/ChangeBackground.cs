@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class ChangeBackground : MonoBehaviour
 {   
-
+    public string newbackground;
     // Start is called before the first frame update
-    public void newbackground()
+    public void setbackground()
     {
-        
+        PlayerPrefs.SetString("background", newbackground);
+	    PlayerPrefs.Save();
+        Debug.Log("saved");
     }
 }

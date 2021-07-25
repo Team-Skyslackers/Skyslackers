@@ -5117,7 +5117,7 @@ MonoBehaviour:
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
-  m_ScreenMatchMode: 0
+  m_ScreenMatchMode: 2
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
@@ -5717,7 +5717,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 354.0001, y: 177.00006}
+  m_AnchoredPosition: {x: 354, y: 154}
   m_SizeDelta: {x: 500, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &281165972
@@ -5742,7 +5742,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 1f16052dfd5f6f54e94e97ecedd4c86b, type: 3}
-    m_FontSize: 70
+    m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -6388,7 +6388,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -45.9999, y: 139.00003}
+  m_AnchoredPosition: {x: -46, y: 190}
   m_SizeDelta: {x: 500, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &566759826
@@ -6413,11 +6413,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 1f16052dfd5f6f54e94e97ecedd4c86b, type: 3}
-    m_FontSize: 50
+    m_FontSize: 65
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 50
+    m_MaxSize: 65
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -7423,6 +7423,7 @@ MonoBehaviour:
   score: {fileID: 281165970}
   percent: {fileID: 1623133459}
   progress_bar: {fileID: 345759104}
+  corridor: {fileID: 2089739398}
   layer: 8
 --- !u!81 &711094678
 AudioListener:
@@ -8859,6 +8860,7 @@ MonoBehaviour:
   score: {fileID: 1871462398}
   percent: {fileID: 566759824}
   progress_bar: {fileID: 1434372106}
+  corridor: {fileID: 1954588431}
   layer: 8
 --- !u!82 &963194231
 AudioSource:
@@ -15732,7 +15734,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 354.0001, y: 139.00003}
+  m_AnchoredPosition: {x: 354, y: 190}
   m_SizeDelta: {x: 500, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1623133461
@@ -15757,11 +15759,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 1f16052dfd5f6f54e94e97ecedd4c86b, type: 3}
-    m_FontSize: 50
+    m_FontSize: 65
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 50
+    m_MaxSize: 65
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -16464,7 +16466,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -45.9999, y: 177.00006}
+  m_AnchoredPosition: {x: -46, y: 154}
   m_SizeDelta: {x: 500, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1871462400
@@ -16489,7 +16491,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 1f16052dfd5f6f54e94e97ecedd4c86b, type: 3}
-    m_FontSize: 70
+    m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -16870,6 +16872,11 @@ PrefabInstance:
       objectReference: {fileID: 963194227}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7cef2eca1416843e0a467e4b6bccbb20, type: 3}
+--- !u!1 &1954588431 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1597397986200413217, guid: 7cef2eca1416843e0a467e4b6bccbb20, type: 3}
+  m_PrefabInstance: {fileID: 1954588430}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1955332540
 GameObject:
   m_ObjectHideFlags: 0
@@ -17299,6 +17306,11 @@ PrefabInstance:
       objectReference: {fileID: 711094679}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7cef2eca1416843e0a467e4b6bccbb20, type: 3}
+--- !u!1 &2089739398 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1597397986200413217, guid: 7cef2eca1416843e0a467e4b6bccbb20, type: 3}
+  m_PrefabInstance: {fileID: 2089739397}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2094002332
 GameObject:
   m_ObjectHideFlags: 0

@@ -31,6 +31,7 @@ public class Generate : MonoBehaviour
     public GameObject score;
     public GameObject percent;
     public GameObject progress_bar;
+    public GameObject corridor;
 
     public int layer;
     float StartTime, NextBoltTime;
@@ -39,6 +40,17 @@ public class Generate : MonoBehaviour
 
     void Start()
     {
+        string curr_bg;
+        if (PlayerPrefs.HasKey("background")){
+            curr_bg = PlayerPrefs.GetString("background");
+	    }
+	    else {
+            curr_bg = "bg1";
+            Debug.Log("no data");
+        }
+        var bg_img = Resources.Load<Sprite>("Images/"+curr_bg);
+        Debug.Log(bg_img);
+        corridor.GetComponent<Image>().sprite = bg_img;
         currentSong = new Song(SongManager.musicMap, SettingsController.bolt_speed);
         Debug.Log(SongManager.musicMap);
         musicFile = GetComponent<AudioSource>();

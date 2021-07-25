@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 107671619}
   - component: {fileID: 107671618}
   - component: {fileID: 107671617}
+  - component: {fileID: 107671620}
   m_Layer: 5
   m_Name: Button3
   m_TagString: Untagged
@@ -193,7 +194,7 @@ MonoBehaviour:
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 21300000, guid: 82610ee36fc3748618b213a979bcc5bd, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: b6a0dd32ee714486bb5750dfb46776a4, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -205,7 +206,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 107671618}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 107671620}
+        m_TargetAssemblyTypeName: ChangeBackground, Assembly-CSharp
+        m_MethodName: setbackground
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: bg3
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &107671618
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -244,6 +257,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 107671615}
   m_CullTransparentMesh: 1
+--- !u!114 &107671620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 107671615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bbd5b34e1f254633803729e226e1673, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newbackground: bg3
 --- !u!1 &112560898
 GameObject:
   m_ObjectHideFlags: 0
@@ -350,7 +376,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Back
+  m_Text: Save
 --- !u!222 &224425385
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1400,6 +1426,7 @@ GameObject:
   - component: {fileID: 977070569}
   - component: {fileID: 977070568}
   - component: {fileID: 977070567}
+  - component: {fileID: 977070570}
   m_Layer: 5
   m_Name: Button2
   m_TagString: Untagged
@@ -1470,7 +1497,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 977070568}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 977070570}
+        m_TargetAssemblyTypeName: ChangeBackground, Assembly-CSharp
+        m_MethodName: setbackground
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: bg2
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &977070568
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1509,6 +1548,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 977070565}
   m_CullTransparentMesh: 1
+--- !u!114 &977070570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 977070565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bbd5b34e1f254633803729e226e1673, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newbackground: bg2
 --- !u!1 &994999362
 GameObject:
   m_ObjectHideFlags: 0
@@ -1875,6 +1927,7 @@ GameObject:
   - component: {fileID: 1103387166}
   - component: {fileID: 1103387165}
   - component: {fileID: 1103387164}
+  - component: {fileID: 1103387167}
   m_Layer: 5
   m_Name: Button1
   m_TagString: Untagged
@@ -1946,16 +1999,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 1103387167}
+        m_TargetAssemblyTypeName: ChangeBackground, Assembly-CSharp
+        m_MethodName: setbackground
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: bg1
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1103387165
@@ -1996,6 +2049,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1103387162}
   m_CullTransparentMesh: 1
+--- !u!114 &1103387167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1103387162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bbd5b34e1f254633803729e226e1673, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newbackground: bg1
 --- !u!1 &1127884608
 GameObject:
   m_ObjectHideFlags: 0
