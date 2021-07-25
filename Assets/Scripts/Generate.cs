@@ -65,7 +65,7 @@ public class Generate : MonoBehaviour
         // alter game settings
         musicFile.volume = SettingsController.music_volume;
         music_current_time = musicFile.time;
-        progress_bar.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, (float)400*music_current_time/totalMusicLength);
+        progress_bar.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, (float)800*music_current_time/totalMusicLength);
         if (player == 1) {
             raw_percent = (double)100*myScore1/(currentSong.line_count*40-20);
             curr_percent = (double)Math.Truncate(raw_percent*10)/10;
