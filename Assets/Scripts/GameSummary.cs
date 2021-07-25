@@ -54,13 +54,12 @@ public class GameSummary : MonoBehaviour
         missed2 = 0;
         // test code
         //Generate.musicFile.time = Generate.musicFile.clip.length-10;
-        Debug.Log("settime");
     }
 
     void Update()
     {
 
-        Debug.Log(Generate.music_current_time.ToString("N") + " / " + Generate.totalMusicLength.ToString("N"));
+        //Debug.Log(Generate.music_current_time.ToString("N") + " / " + Generate.totalMusicLength.ToString("N"));
         if (Generate.music_current_time >= Generate.totalMusicLength - 1 && showingSummary == false)
         {
             // only run once when the game ends

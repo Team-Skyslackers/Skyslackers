@@ -52,7 +52,7 @@ public class Generate : MonoBehaviour
         Debug.Log(bg_img);
         corridor.GetComponent<Image>().sprite = bg_img;
         currentSong = new Song(SongManager.musicMap, SettingsController.bolt_speed);
-        Debug.Log(SongManager.musicMap);
+        //Debug.Log(SongManager.musicMap);
         musicFile = GetComponent<AudioSource>();
         musicFile.clip = SongManager.musicFile;
         musicFile.Play();
