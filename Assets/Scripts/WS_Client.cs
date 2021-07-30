@@ -23,6 +23,7 @@ public class WS_Client : MonoBehaviour
     int past_av_ind = 0;
     Vector2 deltaRotation;
     Vector2 last_axy = new Vector2(0, 0);
+    float av_last_update_time;
     static public float blade_av1; // take max over past 10 frame
     static public float blade_av2;
 
@@ -36,6 +37,8 @@ public class WS_Client : MonoBehaviour
 
     void Start()
     {
+        av_last_update_time = Time.time;
+
         dataCount = 0;
         dataCountStartTime = Time.time;
         last_frame_data = Quaternion.identity;
@@ -95,8 +98,10 @@ public class WS_Client : MonoBehaviour
 
     void new_av(float _x, float _y)
     {
-        deltaRotation = new Vector2(_x, _y) - last_axy;
+        if (Time.time - av_last_update_time < 1.0/60.0) return;
+        deltaRotation = (new Vector2(_x, _y) - last_axy) / (Time.time - av_last_update_time);
         last_axy = new Vector2(_x, _y);
+        av_last_update_time = Time.time;
 
         past_av[past_av_ind] = deltaRotation.magnitude;
         past_av_ind = (past_av_ind == 9) ? 0 : past_av_ind + 1;

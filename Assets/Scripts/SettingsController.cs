@@ -26,6 +26,9 @@ public class SettingsController : MonoBehaviour
 
     private void Start()
     {
+        // Application.targetFrameRate = 75;
+        // QualitySettings.vSyncCount = 1;
+
         if (PlayerPrefs.HasKey("background")){
             background = PlayerPrefs.GetString("background");
             if (background == "bg1") {

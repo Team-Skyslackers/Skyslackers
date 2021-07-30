@@ -92,7 +92,7 @@ public class BeamControl : MonoBehaviour {
 
     private void OnTriggerStay(Collider other) {
         if (other.gameObject.name == "Lightsaber_Blade" &&
-            ((WS_Client.blade_av1 > 10 && player == 1) || (WS_Client.blade_av2 > 10 && player == 2))&&
+            ((WS_Client.blade_av1 > 300 && player == 1) || (WS_Client.blade_av2 > 300 && player == 2))&&
             //gameObject.transform.position[2] < 3 * (SettingsController.bolt_speed * perfect_time_range) + Generate.bolt_z_offset &&
             colour != "red") {
             if (colour == "gold"){
