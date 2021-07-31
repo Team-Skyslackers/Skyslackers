@@ -65,7 +65,8 @@ public class BeamControl : MonoBehaviour {
                 else 
                     Generate.myCombo2 = 0;
                 Vector3 ex_pt = gameObject.transform.position;
-                Instantiate(text_miss, new Vector3(ex_pt[0], ex_pt[1], ex_pt[2]), Quaternion.identity);
+                // Instantiate(text_miss, new Vector3(ex_pt[0], ex_pt[1], ex_pt[2]), Quaternion.identity);
+                Instantiate(text_miss, new Vector3(ex_pt[0], ex_pt[1], 0), Quaternion.identity);
                 if (player == 1)
                     GameSummary.missed1++;
                 else
