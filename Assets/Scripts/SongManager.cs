@@ -9,8 +9,8 @@ using System;
 
 public class SongManager : MonoBehaviour
 {
-    static public TextAsset musicMap = Resources.Load<TextAsset>("Music/Imperial March (Keyzee Trap Remix)_csv");
-    static public AudioClip musicFile = Resources.Load<AudioClip>("Music/Imperial March (Keyzee Trap Remix)");
+    static public TextAsset musicMap;
+    static public AudioClip musicFile;
 
     static public string scenename = "game";
     static public string songname;
@@ -24,8 +24,12 @@ public class SongManager : MonoBehaviour
     void Start()
     {
         songname = "";
-        musicMap = null;
-        musicFile = null;
+        if (musicMap == null) {
+            musicMap = Resources.Load<TextAsset>("Music/Imperial March (Keyzee Trap Remix)_csv");
+        }
+        if (musicFile == null) {
+            musicFile = Resources.Load<AudioClip>("Music/Imperial March (Keyzee Trap Remix)");
+        }
         ws = new WebSocket("ws://localhost:18080");
         Debug.Log("songmanager online");
         ws.ConnectAsync();
