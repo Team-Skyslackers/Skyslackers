@@ -8,10 +8,10 @@ using UnityEngine.UI;
 
 public class Generate : MonoBehaviour
 {
-    public static int myScore1 = 0;
-    public static int myCombo1 = 0;
-    public static int myScore2 = 0;
-    public static int myCombo2 = 0;
+    public static int myScore1;
+    public static int myCombo1;
+    public static int myScore2;
+    public static int myCombo2;
 
     Song currentSong;
 
@@ -40,6 +40,11 @@ public class Generate : MonoBehaviour
 
     void Start()
     {
+        Generate.myScore1 = 0;//reset scores & combo
+        Generate.myCombo1 = 0;
+        Generate.myScore2 = 0;//reset scores & combo
+        Generate.myCombo2 = 0;
+        
         string curr_bg;
         if (PlayerPrefs.HasKey("background")){
             curr_bg = PlayerPrefs.GetString("background");

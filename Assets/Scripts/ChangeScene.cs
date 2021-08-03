@@ -13,9 +13,5 @@ public class ChangeScene : MonoBehaviour
         else 
             SongManager.scenename = "game2";
         SceneManager.LoadScene(target_scene);
-        Generate.myScore1 = 0;//reset scores & combo
-        Generate.myCombo1 = 0;
-        Generate.myScore2 = 0;//reset scores & combo
-        Generate.myCombo2 = 0;
     }
 }
