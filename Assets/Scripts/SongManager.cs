@@ -16,10 +16,8 @@ public class SongManager : MonoBehaviour
     static public string songname;
 
     WebSocket ws;
-
     
-    public TextAsset ms;
-    public AudioClip ac;
+    public GameObject LoadingAlert;
 
     void Start()
     {
@@ -37,6 +35,9 @@ public class SongManager : MonoBehaviour
         {
             if (message.Data.Substring(0, 13) == "musicselected")
             {   
+                Debug.Log("loading music");
+                LoadingAlert.SetActive(true);
+
                 string URLinfo = message.Data.Substring(15);
                 string mp3URL = URLinfo.Split(' ')[0];
                 string csvURL = URLinfo.Split(' ')[1];
