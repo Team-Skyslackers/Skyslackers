@@ -150,18 +150,18 @@ public class Generate : MonoBehaviour
 
     void InstantiateAtPosition(char pos, float music_timing)
     {
-        // assume 123QEASD cooresponds to 8 possible positions on screen.
+        // assume QWEADZXC cooresponds to 8 possible positions on screen.
         float x, y;
-        if (pos == 'Q' || pos == 'A' || pos == 'Z')
+        if (Char.ToLower(pos) == 'q' || Char.ToLower(pos) == 'a' || Char.ToLower(pos) == 'z')
             x = -max_bolt_x+origin_x;
-        else if (pos == 'W' || pos == 'X')
+        else if (Char.ToLower(pos) == 'w' || Char.ToLower(pos) == 'x')
             x = origin_x;
         else
             x = max_bolt_x+origin_x;
 
-        if (pos == 'Q' || pos == 'W' || pos == 'E')
+        if (Char.ToLower(pos) == 'q' || Char.ToLower(pos) == 'w' || Char.ToLower(pos) == 'e')
             y = max_bolt_y;
-        else if (pos == 'A' || pos == 'D')
+        else if (Char.ToLower(pos) == 'a' || Char.ToLower(pos) == 'd')
             y = 0;
         else
             y = -max_bolt_y;
