@@ -43,7 +43,7 @@ public class SongManager : MonoBehaviour
                 string csvURL = URLinfo.Split(' ')[1];
 
                 string source = mp3URL.Substring(mp3URL.IndexOf("musicFile%2F")+12,
-                mp3URL.IndexOf("_song.csv")-mp3URL.IndexOf("musicFile%2F")-12); //extract the exact name of the song from the firebase song
+                mp3URL.IndexOf("_song.mp3")-mp3URL.IndexOf("musicFile%2F")-12); //extract the exact name of the song from the firebase song
                 string[] stringSeparators = new string[] {"%20"};
                 string[] result;
                 result = source.Split(stringSeparators, StringSplitOptions.None);
